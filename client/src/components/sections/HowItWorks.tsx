@@ -73,20 +73,20 @@ export default function HowItWorks() {
         >
           {steps.map((step) => (
             <motion.div key={step.number} variants={itemVariants}>
-              <Card className="h-full relative bg-gray-50">
-                <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold z-10">
-                  {step.number}
+              <div className="bg-gray-50 rounded-lg shadow-lg h-full overflow-hidden hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px]">
+                <div className="bg-primary p-4 flex items-center justify-center">
+                  <step.icon className="h-8 w-8 text-white" />
                 </div>
-                <CardContent className="p-8">
+                <div className="p-8">
+                  <div className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold mb-6">
+                    {step.number}
+                  </div>
                   <h3 className="text-xl font-semibold mb-4 font-poppins">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 mb-6">{step.description}</p>
-                  <div className="mt-6">
-                    <step.icon className="h-10 w-10 text-primary" />
-                  </div>
-                </CardContent>
-              </Card>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>

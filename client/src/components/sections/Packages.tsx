@@ -81,7 +81,7 @@ const itemVariants = {
 
 export default function Packages() {
   return (
-    <section className="py-20 bg-accent-light">
+    <section id="pricing" className="py-20 bg-accent-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
