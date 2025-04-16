@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-teal text-white py-12">
+    <footer className="bg-dark-grey text-white py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
@@ -20,13 +20,15 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/prajjwoltimilsina/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary transition-colors duration-200"
+                className="text-white hover:text-primary transition-colors duration-200"
               >
                 <FaLinkedin size={24} />
               </a>
               <a 
-                href="#" 
-                className="text-gray-400 hover:text-primary transition-colors duration-200"
+                href="https://www.linkedin.com/in/prajjwoltimilsina/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-primary transition-colors duration-200"
               >
                 <FaFacebook size={24} />
               </a>
@@ -72,11 +74,17 @@ export default function Footer() {
           
           <div>
             <h3 className="text-lg font-semibold mb-4 font-poppins">Get In Touch</h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-white mb-4">
               Have questions? We're here to help you navigate the AI landscape.
             </p>
             <Button asChild variant="default">
-              <a href="#contact">Book Your Free Consultation</a>
+              <a 
+                href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Book Your Free Consultation
+              </a>
             </Button>
           </div>
         </div>

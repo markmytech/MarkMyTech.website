@@ -177,7 +177,12 @@ export default function Contact() {
                   Prefer to schedule a direct call? Use our online calendar to find a time that works for you.
                 </p>
                 <Button asChild variant="secondary" className="inline-flex items-center">
-                  <a href="#" className="flex items-center">
+                  <a 
+                    href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center"
+                  >
                     <Calendar className="mr-2 h-4 w-4" />
                     Schedule a Call
                   </a>
@@ -189,7 +194,7 @@ export default function Contact() {
                   </h4>
                   <div className="flex space-x-4">
                     <Button asChild variant="outline" size="icon" className="rounded-full">
-                      <a href="#" aria-label="LinkedIn">
+                      <a href="https://www.linkedin.com/in/prajjwoltimilsina/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </Button>
