@@ -5,11 +5,27 @@ import {
   Globe, 
   Briefcase, 
   Store, 
-  User
+  User,
+  MapPin
 } from "lucide-react";
 
 // Categories and their respective items
 const audienceCategories = [
+  {
+    icon: MapPin,
+    title: "Minnesota Businesses",
+    summary: "Tailored automation solutions for key Minnesota industries.",
+    items: [
+      { emoji: "🏥", title: "Healthcare & Medical", description: "Automate patient communications and record management for Minnesota clinics." },
+      { emoji: "🌽", title: "Agriculture & Food", description: "Streamline supply chain and inventory for Minnesota farms and food producers." },
+      { emoji: "🏭", title: "Manufacturing", description: "Optimize operations and reporting for Minnesota manufacturers." },
+      { emoji: "🌲", title: "Outdoor & Tourism", description: "Manage bookings and customer engagement for Minnesota resorts and outfitters." },
+      { emoji: "🏫", title: "Education", description: "Automate administrative tasks for Minnesota schools and educational institutions." },
+      { emoji: "🏙️", title: "Twin Cities Retail", description: "Enhance customer experience and inventory for metro area shops." },
+      { emoji: "🏪", title: "Small Town Main Street", description: "Help local Minnesota businesses compete with automated marketing." },
+      { emoji: "🔬", title: "Tech & Biotech", description: "Support Minnesota's growing tech corridor with scalable systems." }
+    ]
+  },
   {
     icon: User,
     title: "Individuals & Creatives",
@@ -145,7 +161,7 @@ export default function WhoItsFor() {
             Who It's For
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Our AI automation consultation services are tailored for these growing businesses—and more. 
+            Our AI automation consultation services are tailored for growing businesses in <span className="text-accent font-semibold">Minnesota</span> and beyond. 
             If your work involves repetitive tasks, we can help automate them.
           </p>
         </motion.div>
@@ -155,7 +171,7 @@ export default function WhoItsFor() {
             <motion.div
               key={index}
               variants={accordionVariants}
-              className="rounded-lg overflow-hidden bg-white shadow-md"
+              className={`rounded-lg overflow-hidden bg-white shadow-md ${index === 0 ? 'border-l-4 border-accent' : ''}`}
             >
               {/* Accordion Header */}
               <button
@@ -213,7 +229,11 @@ export default function WhoItsFor() {
                           <motion.div
                             key={itemIndex}
                             variants={itemVariants}
-                            className="bg-white rounded-lg p-4 shadow-sm hover:shadow transition-all duration-300 hover:border-l-4 hover:border-primary"
+                            className={`bg-white rounded-lg p-4 shadow-sm hover:shadow transition-all duration-300 hover:border-l-4 ${
+                              index === 0 
+                                ? "hover:border-accent border border-gray-100" 
+                                : "hover:border-primary"
+                            }`}
                             whileHover={{ y: -4, transition: { duration: 0.2 } }}
                           >
                             <div className="flex items-start">
