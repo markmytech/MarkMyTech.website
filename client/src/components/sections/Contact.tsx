@@ -197,7 +197,7 @@ export default function Contact() {
                   <div className="flex space-x-4">
                     <Button asChild variant="outline" size="icon" className="rounded-full hover:bg-primary/10">
                       <a 
-                        href="https://www.linkedin.com/company/96326135/admin/dashboard/" 
+                        href="https://www.linkedin.com/company/markmytech/" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         aria-label="LinkedIn"
