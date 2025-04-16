@@ -171,15 +171,15 @@ export default function Contact() {
             <Card className="bg-gray-50 shadow-md">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold mb-4 font-poppins">
-                  Book a Consultation
+                  Free 15-Minute Discovery Call
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Prefer to schedule a direct call? Use our online calendar to find a time that works for you.
+                  Book a complimentary 15-minute discovery call to discuss your automation needs and see if we're a good fit.
                 </p>
                 <Button asChild variant="secondary" className="inline-flex items-center">
                   <a href="#" className="flex items-center">
                     <Calendar className="mr-2 h-4 w-4" />
-                    Schedule a Call
+                    Book Free Discovery Call
                   </a>
                 </Button>
 

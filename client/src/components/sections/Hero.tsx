@@ -23,7 +23,7 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="shadow-lg">
-                <a href="#contact">Get Your AI Audit</a>
+                <a href="#contact">Free 15-Min Discovery Call</a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#services">View Services</a>

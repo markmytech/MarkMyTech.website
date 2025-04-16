@@ -69,7 +69,7 @@ export default function Header() {
 
           <div className="hidden md:block">
             <Button asChild>
-              <a href="#contact">Book an Audit</a>
+              <a href="#contact">Free Discovery Call</a>
             </Button>
           </div>
 
@@ -109,7 +109,7 @@ export default function Header() {
                 ))}
                 <Button asChild className="mt-2">
                   <a href="#contact" onClick={closeMenu}>
-                    Book an Audit
+                    Free Discovery Call
                   </a>
                 </Button>
               </div>
