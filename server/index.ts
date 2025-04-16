@@ -60,11 +60,18 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
+  
+  // Check if running on macOS (Darwin)
+  const isMacOS = process.platform === 'darwin';
+  
+  // Use different host for macOS
+  const host = isMacOS ? '127.0.0.1' : '0.0.0.0';
+  
+  // Modified server listen configuration for better cross-platform support
+  server.listen(port, host, () => {
+    log(`serving on ${host}:${port}`);
+    if (isMacOS) {
+      log(`Note: On macOS, using 127.0.0.1 instead of 0.0.0.0 for better compatibility`);
+    }
   });
 })();

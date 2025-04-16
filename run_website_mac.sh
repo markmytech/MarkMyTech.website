@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "===== Mark My Tech Website Complete Setup ====="
+echo "===== Mark My Tech Website Setup for macOS ====="
 echo
-echo "This script will install Node.js, project dependencies, and start the website"
+echo "This script will install Node.js if needed, and start the website with macOS-specific settings"
 echo "You may be asked for your password for some installation steps"
 echo
 
@@ -52,32 +52,35 @@ if ! command -v npm &> /dev/null; then
     exit 1
 fi
 
-# Install project dependencies
-echo "Installing project dependencies..."
-echo "This may take a few minutes, please be patient."
-echo
-npm install
-if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to install dependencies."
+# Install dependencies if not already installed
+if [ ! -d "node_modules" ]; then
+    echo "Installing project dependencies..."
+    echo "This may take a few minutes, please be patient."
     echo
-    read -p "Press Enter to exit..."
-    exit 1
+    npm install
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Failed to install dependencies."
+        echo
+        read -p "Press Enter to exit..."
+        exit 1
+    fi
+    echo "Dependencies installed successfully!"
+    echo
 fi
-echo "Dependencies installed successfully!"
-echo
 
 # Start development server
-echo "Starting the website development server..."
+echo "Starting the website development server with macOS optimizations..."
 echo
 echo "When the server is running, open your web browser and navigate to:"
-echo "http://localhost:5000 or http://127.0.0.1:5000"
+echo "http://localhost:5000"
 echo
 echo "To stop the server, press Ctrl+C in this terminal."
 echo
-# If this is macOS (Darwin), use the appropriate host binding
-if [[ "$(uname)" == "Darwin" ]]; then
-  echo "Running on macOS - using optimized server configuration..."
-fi
-npm run dev
+
+# Export environment variable to control binding behavior
+export MAC_HOST_BINDING=1
+
+# Run the development server
+NODE_ENV=development npx tsx server/index.ts
 
 read -p "Press Enter to exit..."
