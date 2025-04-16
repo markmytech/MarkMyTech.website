@@ -130,7 +130,7 @@ export default function Packages() {
                   variant={pkg.highlight ? "default" : "outline"}
                   className="w-full"
                 >
-                  <a href="#contact">Book Free Discovery Call</a>
+                  <a href="#contact">{pkg.buttonText}</a>
                 </Button>
               </div>
             </motion.div>
