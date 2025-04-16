@@ -21,6 +21,8 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white hover:text-primary transition-colors duration-200"
+                data-analytics="social-link-click"
+                data-platform="linkedin"
               >
                 <FaLinkedin size={24} />
               </a>
@@ -29,6 +31,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-primary transition-colors duration-200"
+                data-analytics="social-link-click"
+                data-platform="facebook"
               >
                 <FaFacebook size={24} />
               </a>
