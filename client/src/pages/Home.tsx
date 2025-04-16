@@ -9,6 +9,7 @@ import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Testimonials from "@/components/sections/Testimonials";
 import RecommendationQuiz from "@/components/sections/RecommendationQuiz";
+import BookAppointment from "@/components/sections/BookAppointment";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
@@ -46,6 +47,7 @@ export default function Home() {
         <RecommendationQuiz />
         <WhoItsFor />
         <Packages />
+        <BookAppointment />
         <Testimonials />
         <About />
         <Faq />
