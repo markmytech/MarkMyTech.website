@@ -188,11 +188,24 @@ export default function RecommendationQuiz() {
   
   const handleStartQuiz = () => {
     setShowQuiz(true);
+    
+    // Track quiz start as an event
     trackEvent({
       category: 'quiz',
       action: 'start_quiz',
       label: 'service_recommendation_quiz'
     });
+    
+    // Also track as a funnel stage
+    if (window.analytics?.trackFunnelStage) {
+      window.analytics.trackFunnelStage({
+        stage: 'quiz_started',
+        pageSection: 'quiz',
+        attributes: {
+          quiz_type: 'service_recommendation'
+        }
+      });
+    }
   };
   
   const handleSelectOption = (optionIndex: number) => {
@@ -225,14 +238,41 @@ export default function RecommendationQuiz() {
       const recommendation = getRecommendation(scores);
       setResult(recommendation);
       
+      // Track quiz completion as an event
       trackEvent({
         category: 'quiz',
         action: 'complete_quiz',
         label: 'service_recommendation_quiz',
         attributes: {
-          recommendation: recommendation.packageName
+          recommendation: recommendation.packageName,
+          answers_count: answers.length
         }
       });
+      
+      // Also track as a funnel stage progression
+      if (window.analytics?.trackFunnelStage) {
+        window.analytics.trackFunnelStage({
+          stage: 'quiz_completed',
+          previousStage: 'quiz_started',
+          pageSection: 'quiz',
+          attributes: {
+            quiz_type: 'service_recommendation',
+            recommendation: recommendation.packageName
+          }
+        });
+      }
+      
+      // Track as a conversion metric
+      if (window.analytics?.trackConversion) {
+        window.analytics.trackConversion(
+          'quiz_completion',
+          1,
+          {
+            recommendation_package: recommendation.packageName,
+            quiz_type: 'service_recommendation'
+          }
+        );
+      }
     }
   };
   

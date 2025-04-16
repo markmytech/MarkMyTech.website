@@ -7,6 +7,7 @@ import { Calendar, Linkedin, Facebook, Mail, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { apiRequest } from "@/lib/queryClient";
+import { trackEvent } from "@/lib/analytics";
 
 interface FormData {
   name: string;
