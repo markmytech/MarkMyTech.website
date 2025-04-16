@@ -17,7 +17,7 @@ export default function Footer() {
             <p className="mt-4 text-gray-200">Your Blueprint for AI-Powered Growth.</p>
             <div className="flex space-x-4 mt-4">
               <a 
-                href="https://www.linkedin.com/in/prajjwoltimilsina/" 
+                href="https://www.linkedin.com/company/96326135/admin/dashboard/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white hover:text-primary transition-colors duration-200"

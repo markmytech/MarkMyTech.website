@@ -158,7 +158,7 @@ export default function Contact() {
               <div>
                 <Button 
                   type="submit" 
-                  className="w-full" 
+                  className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 text-lg shadow-lg" 
                   disabled={isSubmitting}
                   data-analytics="contact-form-submit"
                 >
@@ -195,19 +195,28 @@ export default function Contact() {
                     Connect With Us
                   </h4>
                   <div className="flex space-x-4">
-                    <Button asChild variant="outline" size="icon" className="rounded-full">
-                      <a href="https://www.linkedin.com/in/prajjwoltimilsina/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <Button asChild variant="outline" size="icon" className="rounded-full hover:bg-primary/10">
+                      <a 
+                        href="https://www.linkedin.com/company/96326135/admin/dashboard/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        aria-label="LinkedIn"
+                        data-analytics="social-link-click"
+                        data-platform="linkedin"
+                      >
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </Button>
-                    <Button asChild variant="outline" size="icon" className="rounded-full">
-                      <a href="#" aria-label="Facebook">
+                    <Button asChild variant="outline" size="icon" className="rounded-full hover:bg-primary/10">
+                      <a 
+                        href="https://www.linkedin.com/in/prajjwoltimilsina/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        aria-label="Facebook"
+                        data-analytics="social-link-click"
+                        data-platform="facebook"
+                      >
                         <Facebook className="h-5 w-5" />
-                      </a>
-                    </Button>
-                    <Button asChild variant="outline" size="icon" className="rounded-full">
-                      <a href="#" aria-label="Twitter">
-                        <Twitter className="h-5 w-5" />
                       </a>
                     </Button>
                   </div>
