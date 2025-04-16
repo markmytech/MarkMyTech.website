@@ -6,35 +6,40 @@ import {
   Briefcase, 
   Store, 
   User,
-  MapPin
+  Building2,
+  GraduationCap
 } from "lucide-react";
 
 // Categories and their respective items
 const audienceCategories = [
   {
-    icon: MapPin,
-    title: "Minnesota Businesses",
-    summary: "Tailored automation solutions for key Minnesota industries.",
+    icon: Building2,
+    title: "Healthcare & Industry",
+    summary: "Specialized solutions for healthcare, manufacturing and education.",
     items: [
-      { emoji: "🏥", title: "Healthcare & Medical", description: "Automate patient communications and record management for Minnesota clinics." },
-      { emoji: "🌽", title: "Agriculture & Food", description: "Streamline supply chain and inventory for Minnesota farms and food producers." },
-      { emoji: "🏭", title: "Manufacturing", description: "Optimize operations and reporting for Minnesota manufacturers." },
-      { emoji: "🌲", title: "Outdoor & Tourism", description: "Manage bookings and customer engagement for Minnesota resorts and outfitters." },
-      { emoji: "🏫", title: "Education", description: "Automate administrative tasks for Minnesota schools and educational institutions." },
-      { emoji: "🏙️", title: "Twin Cities Retail", description: "Enhance customer experience and inventory for metro area shops." },
-      { emoji: "🏪", title: "Small Town Main Street", description: "Help local Minnesota businesses compete with automated marketing." },
-      { emoji: "🔬", title: "Tech & Biotech", description: "Support Minnesota's growing tech corridor with scalable systems." }
+      { emoji: "🏥", title: "Healthcare & Medical", description: "Automate patient communications and streamline record management systems." },
+      { emoji: "🌽", title: "Agriculture & Food", description: "Streamline supply chain operations and inventory for farms and food producers." },
+      { emoji: "🏭", title: "Manufacturing", description: "Optimize production operations and reporting for enhanced efficiency." },
+      { emoji: "🔬", title: "Research & Biotech", description: "Support lab operations and data management with scalable systems." },
+      { emoji: "🏫", title: "Education", description: "Automate administrative tasks for schools and educational institutions." },
+      { emoji: "🧪", title: "Life Sciences", description: "Streamline research workflows and compliance documentation." },
+      { emoji: "🏗️", title: "Construction", description: "Simplify project management and contractor coordination." },
+      { emoji: "🚚", title: "Logistics & Transport", description: "Optimize routing, scheduling, and delivery management." }
     ]
   },
   {
     icon: User,
-    title: "Individuals & Creatives",
-    summary: "Independent professionals automating their workflow.",
+    title: "Entrepreneurs & Creatives",
+    summary: "Independent professionals and small business owners automating their workflow.",
     items: [
       { emoji: "👩‍💻", title: "Freelancers", description: "Automate client flows, invoicing, and outreach." },
       { emoji: "👨‍🏫", title: "Tutors & Educators", description: "Lesson planning and student management." },
       { emoji: "🧘", title: "Wellness Coaches", description: "Session reminders, notes, and follow-ups." },
-      { emoji: "🎭", title: "Artists & Creators", description: "Product launches, audience engagement, and CRM." }
+      { emoji: "🎭", title: "Artists & Creators", description: "Product launches, audience engagement, and CRM." },
+      { emoji: "🏠", title: "Remote Workers", description: "Optimize home office workflow and communications." },
+      { emoji: "📱", title: "Digital Nomads", description: "Maintain business operations while traveling." },
+      { emoji: "🖋️", title: "Content Writers", description: "Streamline research, publishing, and client deliveries." },
+      { emoji: "👔", title: "Solopreneurs", description: "Manage all aspects of your business with less effort." }
     ]
   },
   {
@@ -64,7 +69,10 @@ const audienceCategories = [
       { emoji: "🧾", title: "Financial Advisors", description: "Automate invoicing, client updates, and reporting." },
       { emoji: "⚖️", title: "Law Firms", description: "Automate document generation, client intake, and reminders." },
       { emoji: "🏡", title: "Real Estate Agents", description: "Lead generation, property alerts, and scheduling." },
-      { emoji: "🧠", title: "Agencies", description: "Project management, client updates, and reporting." }
+      { emoji: "🧠", title: "Agencies", description: "Project management, client updates, and reporting." },
+      { emoji: "📊", title: "Accounting Firms", description: "Streamline bookkeeping and automate client communications." },
+      { emoji: "🔍", title: "Market Researchers", description: "Automate data collection, analysis, and report generation." },
+      { emoji: "🛡️", title: "Insurance Providers", description: "Simplify claims processing and customer service workflows." }
     ]
   },
   {
@@ -76,7 +84,10 @@ const audienceCategories = [
       { emoji: "📚", title: "Course Creators", description: "Manage enrollments, emails, and content delivery." },
       { emoji: "🎥", title: "Content Creators", description: "Schedule posts, automate edits, and manage engagement." },
       { emoji: "🚀", title: "Startups & SaaS", description: "Build scalable systems from day one." },
-      { emoji: "💼", title: "Remote Teams", description: "Streamline communication, reporting, and file management." }
+      { emoji: "💼", title: "Remote Teams", description: "Streamline communication, reporting, and file management." },
+      { emoji: "🖥️", title: "Software Companies", description: "Automate testing, deployments, and customer onboarding." },
+      { emoji: "🌐", title: "Web3 & Blockchain", description: "Streamline operations while maintaining decentralization." },
+      { emoji: "📈", title: "Growth Marketing", description: "Automate lead generation, nurturing, and analytics." }
     ]
   }
 ];
@@ -161,7 +172,7 @@ export default function WhoItsFor() {
             Who It's For
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Our AI automation consultation services are tailored for growing businesses in <span className="text-accent font-semibold">Minnesota</span> and beyond. 
+            Our AI automation consultation services are tailored for businesses across various industries.
             If your work involves repetitive tasks, we can help automate them.
           </p>
         </motion.div>
@@ -171,7 +182,7 @@ export default function WhoItsFor() {
             <motion.div
               key={index}
               variants={accordionVariants}
-              className={`rounded-lg overflow-hidden bg-white shadow-md ${index === 0 ? 'border-l-4 border-accent' : ''}`}
+              className="rounded-lg overflow-hidden bg-white shadow-md"
             >
               {/* Accordion Header */}
               <button
@@ -229,11 +240,7 @@ export default function WhoItsFor() {
                           <motion.div
                             key={itemIndex}
                             variants={itemVariants}
-                            className={`bg-white rounded-lg p-4 shadow-sm hover:shadow transition-all duration-300 hover:border-l-4 ${
-                              index === 0 
-                                ? "hover:border-accent border border-gray-100" 
-                                : "hover:border-primary"
-                            }`}
+                            className="bg-white rounded-lg p-4 shadow-sm hover:shadow transition-all duration-300 hover:border-l-4 hover:border-primary border border-gray-100"
                             whileHover={{ y: -4, transition: { duration: 0.2 } }}
                           >
                             <div className="flex items-start">
