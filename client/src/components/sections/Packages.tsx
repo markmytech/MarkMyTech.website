@@ -103,8 +103,8 @@ export default function Packages() {
               }`}
             >
               {pkg.highlight && (
-                <div className="bg-teal-50 py-2 text-center">
-                  <span className="text-primary font-medium">Most Popular</span>
+                <div className="bg-orange-50 py-2 text-center">
+                  <span className="text-[#0B0B45] font-medium">Most Popular</span>
                 </div>
               )}
               <div className="p-8">

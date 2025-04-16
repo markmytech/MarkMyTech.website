@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <a href="#home" className="text-2xl font-bold font-poppins">
               <span>Mark</span>
-              <span className="text-teal-400">My</span>
+              <span className="text-primary">My</span>
               <span>Tech</span>
             </a>
             <p className="mt-4 text-gray-400">Your Blueprint for AI-Powered Growth.</p>

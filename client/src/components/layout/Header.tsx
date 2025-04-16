@@ -48,7 +48,7 @@ export default function Header() {
             <a href="#home" className="flex items-center">
               <span className="text-2xl font-bold font-poppins">
                 <span className="text-primary">Mark</span>
-                <span className="text-blue-700">My</span>
+                <span className="text-[#0B0B45]">My</span>
                 <span className="text-primary">Tech</span>
               </span>
             </a>
