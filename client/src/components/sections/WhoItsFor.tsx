@@ -45,7 +45,7 @@ const itemVariants = {
 
 export default function WhoItsFor() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-light-grey">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -73,10 +73,10 @@ export default function WhoItsFor() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-light-orange rounded-lg p-6 text-center transition-all duration-300 hover:shadow-lg"
+              className="bg-white rounded-lg p-6 text-center transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex justify-center mb-4">
-                <type.icon className="h-10 w-10 text-accent" />
+                <type.icon className="h-10 w-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2 font-poppins">
                 {type.title}

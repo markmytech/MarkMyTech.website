@@ -81,7 +81,7 @@ const itemVariants = {
 
 export default function Packages() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-accent-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -116,8 +116,8 @@ export default function Packages() {
               }`}
             >
               {pkg.highlight && (
-                <div className="bg-light-orange py-2 text-center">
-                  <span className="text-secondary font-medium">Most Popular</span>
+                <div className="bg-primary py-2 text-center">
+                  <span className="text-white font-medium">Most Popular</span>
                 </div>
               )}
               <div className="p-8">
