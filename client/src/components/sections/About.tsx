@@ -66,14 +66,10 @@ export default function About() {
                 Our Approach
               </h3>
               <p className="text-gray-600 mb-6">
-                In a world of AI hype and empty promises, we focus on practical
-                solutions that deliver real business results. We're independent
-                advisors with no affiliation to the tools we recommend.
+                At Mark My Tech, we simplify AI automation for businesses of all sizes. Our goal is to help you harness the power of AI tools to save time, increase efficiency, and grow your business — without the technical jargon or confusion.
               </p>
               <p className="text-gray-600">
-                Our mission is to demystify AI automation for small and medium
-                businesses, helping you implement only what will truly benefit
-                your unique situation.
+                We're independent advisors with no affiliation to the tools we recommend, ensuring you get unbiased guidance tailored to your specific business needs.
               </p>
             </motion.div>
             <motion.div variants={itemVariants}>
