@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { FaLinkedin, FaFacebook } from "react-icons/fa";
-import logoPath from "../../assets/logo.svg";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,9 +11,9 @@ export default function Footer() {
           <div>
             <a href="#home" className="flex items-center">
               <img 
-                src={logoPath} 
+                src="/logo-white.svg" 
                 alt="Mark My Tech Logo" 
-                className="h-10 w-auto filter brightness-0 invert"
+                className="h-10 w-auto"
                 style={{ maxWidth: '180px' }} 
               />
             </a>
