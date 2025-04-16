@@ -1,0 +1,65 @@
+eplace the existing “Who It’s For” section with a responsive grid layout.
+Each audience segment should appear as a card or block, arranged in 3 columns on desktop, 2 on tablet, and 1 on mobile.
+Apply a subtle fade-in animation or slide-up effect when the cards come into view (on scroll).
+Use a consistent design: soft shadows, rounded corners, and icons or emojis for each block.
+Use the following content inside the grid:
+
+Who It’s For
+Our AI automation consultation services are tailored for these growing businesses—and more. If your work involves repetitive tasks, we can help automate them.
+
+🌐 Online & Tech
+🛒 Ecommerce Brands – Automate customer support, inventory, and marketing.
+
+📚 Course Creators – Manage enrollments, emails, and content delivery.
+
+🎥 Content Creators – Schedule posts, automate edits, and manage engagement.
+
+🚀 Startups & SaaS – Build scalable systems from day one.
+
+💼 Remote Teams – Streamline communication, reporting, and file management.
+
+🧑‍💼 Professional Services
+🎓 Coaches & Consultants – Automate onboarding, scheduling, and content.
+
+🧾 Financial Advisors – Automate invoicing, client updates, and reporting.
+
+⚖️ Law Firms – Automate document generation, client intake, and reminders.
+
+🏡 Real Estate Agents – Lead generation, property alerts, and scheduling.
+
+🧠 Agencies – Project management, client updates, and reporting.
+
+🏪 Local & Service-Based Businesses
+✂️ Salons & Spas – Schedule appointments, promotions, and reviews.
+
+🍽️ Restaurants & Cafés – Reservations, online orders, and loyalty messaging.
+
+🏋️ Gyms & Studios – Class bookings, renewals, and client communication.
+
+🧹 Home Services – Automate bookings, quotes, and follow-ups.
+
+🚗 Auto Repair Shops – Manage appointments, status texts, and offers.
+
+🏠 Interior Designers – Client onboarding and project updates.
+
+📦 Retail Stores – Manage inventory, receipts, and customer emails.
+
+🩺 Clinics & Wellness Centers – Automate reminders and patient flows.
+
+🏕️ Event Planners – RSVPs, timelines, and vendor coordination.
+
+🎨 Photographers – Booking, invoicing, and delivery workflows.
+
+🛏️ BnB Hosts – Messaging, bookings, and review requests.
+
+👤 Individuals & Creatives
+👩‍💻 Freelancers – Automate client flows, invoicing, and outreach.
+
+👨‍🏫 Tutors & Educators – Lesson planning and student management.
+
+🧘 Wellness Coaches – Session reminders, notes, and follow-ups.
+
+🎭 Artists & Creators – Product launches, audience engagement, and CRM.
+
+Ensure spacing between cards is balanced. On hover, cards can scale slightly or have a highlight effect. Add soft fade-in animation (or slide-up) on scroll for a professional touch.
+

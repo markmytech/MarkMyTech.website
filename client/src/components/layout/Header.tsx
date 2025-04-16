@@ -9,6 +9,7 @@ const navLinks = [
   { text: "Services", href: "#pricing" },
   { text: "How We Help", href: "#services" },
   { text: "Find Your Fit", href: "#quiz" },
+  { text: "Who It's For", href: "#for-who" },
   { text: "Success Stories", href: "#testimonials" },
   { text: "About", href: "#about" },
   { text: "FAQ", href: "#faq" },
