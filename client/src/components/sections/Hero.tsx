@@ -22,7 +22,13 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="shadow-lg">
-                <a href="#contact">Get Your Free Consultation</a>
+                <a 
+                  href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Get Your Free Consultation
+                </a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#services">View Services</a>

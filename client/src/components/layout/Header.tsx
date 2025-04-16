@@ -70,7 +70,13 @@ export default function Header() {
 
           <div className="hidden md:block">
             <Button asChild>
-              <a href="#contact">Book a Free Consultation</a>
+              <a 
+                href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Book a Free Consultation
+              </a>
             </Button>
           </div>
 
@@ -109,7 +115,12 @@ export default function Header() {
                   </a>
                 ))}
                 <Button asChild className="mt-2">
-                  <a href="#contact" onClick={closeMenu}>
+                  <a 
+                    href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                  >
                     Book a Free Consultation
                   </a>
                 </Button>
