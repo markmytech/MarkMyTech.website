@@ -59,7 +59,7 @@ const itemVariants = {
 
 export default function Faq() {
   return (
-    <section id="faq" className="py-20 bg-gray-50">
+    <section id="faq" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -86,7 +86,7 @@ export default function Faq() {
           <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((item, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <AccordionItem value={`item-${index}`} className="bg-white rounded-lg shadow-md">
+                <AccordionItem value={`item-${index}`} className="bg-light-orange rounded-lg shadow-md">
                   <AccordionTrigger className="px-6 py-4 font-medium hover:no-underline">
                     {item.question}
                   </AccordionTrigger>

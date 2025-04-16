@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section id="home" className="pt-32 pb-20 sm:pt-40 sm:pb-24">
+    <section id="home" className="pt-32 pb-20 sm:pt-40 sm:pb-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
