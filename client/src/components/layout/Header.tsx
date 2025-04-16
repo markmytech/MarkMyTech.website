@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+// Import the SVG logo
+import logoPath from "../../assets/logo.svg";
 
 const navLinks = [
   { text: "Home", href: "#home" },
@@ -50,11 +52,13 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <a href="#home" className="flex items-center">
-              <span className="text-2xl font-bold font-poppins">
-                <span className="text-primary">Mark</span>
-                <span className="text-accent">My</span>
-                <span className="text-primary">Tech</span>
-              </span>
+              <img 
+                src={logoPath} 
+                alt="Mark My Tech Logo" 
+                className="h-10 w-auto"
+                style={{ maxWidth: '180px' }} 
+              />
+              <span className="sr-only">Mark My Tech</span>
             </a>
           </div>
 

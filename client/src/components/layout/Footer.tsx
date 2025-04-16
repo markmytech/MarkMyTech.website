@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FaLinkedin, FaFacebook } from "react-icons/fa";
+import logoPath from "../../assets/logo.svg";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
