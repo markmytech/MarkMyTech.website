@@ -1,13 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowRight, CheckCircle, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 
 const GOOGLE_CALENDAR_LINK = "https://calendar.app.google/MYPE1kzDMy6sDv2n6";
 
+// Get user's timezone
+const getUserTimezone = (): string => {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone;
+  } catch (error) {
+    console.error("Error getting timezone:", error);
+    return "Your local timezone";
+  }
+};
+
 export default function BookAppointment() {
   const [isHovering, setIsHovering] = useState(false);
+  const [timezone, setTimezone] = useState<string>("Detecting timezone...");
+  const [showBookingConfirmation, setShowBookingConfirmation] = useState(false);
+  
+  useEffect(() => {
+    // Get user's timezone when component mounts
+    setTimezone(getUserTimezone());
+  }, []);
   
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -29,6 +46,20 @@ export default function BookAppointment() {
       transition: { duration: 0.5 }
     }
   };
+  
+  const iconVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      transition: { 
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        delay: 0.2
+      }
+    }
+  };
 
   const handleBookAppointment = () => {
     // Track appointment booking click
@@ -36,6 +67,9 @@ export default function BookAppointment() {
       try {
         // Open the Google Calendar link in a new tab
         window.open(GOOGLE_CALENDAR_LINK, '_blank');
+        
+        // Show booking confirmation
+        setShowBookingConfirmation(true);
         
         // Track analytics event using our tracking function
         trackEvent({
@@ -46,8 +80,14 @@ export default function BookAppointment() {
         
         // Also track as a conversion
         trackConversion('consultation-booking', undefined, {
-          source: 'booking_section'
+          source: 'booking_section',
+          timezone: timezone
         });
+        
+        // Hide confirmation after 5 seconds
+        setTimeout(() => {
+          setShowBookingConfirmation(false);
+        }, 5000);
       } catch (error) {
         console.error('Error opening calendar link:', error);
       }
@@ -92,7 +132,7 @@ export default function BookAppointment() {
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 <h3 className="text-xl font-semibold">What to expect:</h3>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-start">
@@ -113,10 +153,43 @@ export default function BookAppointment() {
                   </li>
                 </ul>
               </div>
+              
+              {/* Mini testimonials */}
+              <div className="border-t border-gray-100 pt-6">
+                <h4 className="text-lg font-semibold mb-4 flex items-center">
+                  <Users className="h-5 w-5 mr-2 text-primary" />
+                  What others say about our consultations
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <p className="text-sm italic text-gray-600">
+                      "The consultation was eye-opening! I had no idea how much of my daily work could be automated."
+                    </p>
+                    <p className="text-sm font-medium mt-2">
+                      — Sarah T., Marketing Agency
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <p className="text-sm italic text-gray-600">
+                      "Extremely valuable 30 minutes. The personalized automation roadmap was exactly what our team needed."
+                    </p>
+                    <p className="text-sm font-medium mt-2">
+                      — Michael R., E-commerce Business
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
           <motion.div variants={itemVariants}>
+            {/* Timezone info */}
+            <div className="mb-6 flex justify-center items-center gap-2 text-sm text-gray-600">
+              <Clock className="h-4 w-4 text-primary" />
+              <span>All times shown will be in your local timezone: <span className="font-medium">{timezone}</span></span>
+            </div>
+            
+            {/* Booking Button */}
             <div 
               className="inline-block"
               onMouseEnter={() => setIsHovering(true)}
@@ -127,7 +200,10 @@ export default function BookAppointment() {
                 className="text-lg bg-primary hover:bg-primary/90 text-white font-semibold py-6 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 flex items-center"
                 size="lg"
               >
-                Book Your Free Consultation
+                <span className="flex items-center">
+                  <Calendar className={`mr-2 h-5 w-5 ${isHovering ? 'animate-pulse' : ''}`} />
+                  Book Your Free Consultation
+                </span>
                 <motion.div
                   animate={{ x: isHovering ? 5 : 0 }}
                   transition={{ duration: 0.2 }}
@@ -136,9 +212,23 @@ export default function BookAppointment() {
                 </motion.div>
               </Button>
             </div>
+            
+            {/* Terms */}
             <p className="text-gray-500 text-sm mt-4">
               By scheduling, you agree to our terms of service and privacy policy.
             </p>
+            
+            {/* Booking Confirmation Message */}
+            {showBookingConfirmation && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-8 bg-green-50 text-green-800 px-6 py-4 rounded-lg border border-green-200 flex items-center justify-center shadow-sm"
+              >
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                <span>Google Calendar opened in a new tab. Complete your booking there!</span>
+              </motion.div>
+            )}
           </motion.div>
         </motion.div>
       </div>
