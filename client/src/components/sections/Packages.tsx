@@ -4,60 +4,52 @@ import { Check } from "lucide-react";
 
 const packages = [
   {
-    title: "Free 30-Minute Consultation",
-    price: "Free",
-    description: "An introductory, no-obligation consultation where we discuss your business and explore automation opportunities.",
-    features: [
-      "Initial business review",
-      "Identify automation potential",
-      "Brief Q&A session",
-      "No obligation to continue"
-    ],
-    buttonText: "Book Free Consultation",
-    highlight: false,
-  },
-  {
     title: "Starter Plan",
     price: "$500",
-    description: "A simplified audit of your current workflows with a focus on the most essential areas for automation.",
+    description: "Perfect for small businesses exploring automation.",
     features: [
-      "Focused workflow assessment",
-      "3 key recommendations",
-      "Introductory guide on automation tools",
-      "90-minute strategy call"
+      "Initial 30-min consultation",
+      "Workflow audit for 1–2 processes",
+      "Tool and vendor recommendations",
+      "Personalized automation report",
+      "Add-on: Ongoing Support & Maintenance (optional)"
     ],
     buttonText: "Get Started",
     highlight: false,
+    color: "🟢"
   },
   {
-    title: "AI Automation Blueprint",
-    price: "$2,000",
-    description: "A comprehensive audit of your workflows, customized tool recommendations, and an actionable roadmap for AI automation.",
+    title: "Growth Plan",
+    price: "$1,500",
+    description: "Ideal for growing businesses ready to scale AI integration.",
     features: [
-      "Complete business workflow mapping",
-      "Full automation opportunity analysis",
-      "Detailed tool stack recommendations",
+      "Full workflow audit (up to 5 processes)",
+      "ROI-focused automation strategy",
+      "Tool and vendor sourcing",
       "Implementation roadmap",
-      "ROI projections",
-      "Two strategy sessions"
+      "1 follow-up review session",
+      "Add-on: Ongoing Support & Maintenance (discounted)"
     ],
-    buttonText: "Get Your Blueprint",
+    buttonText: "Upgrade Your Business",
     highlight: true,
+    color: "🟡"
   },
   {
-    title: "Ongoing Advisor",
+    title: "Custom Enterprise Plan",
     price: "Custom",
-    description: "Monthly check-ins to optimize and scale your AI automation efforts with expert guidance.",
+    description: "Tailored for larger organizations with complex operations.",
     features: [
-      "Monthly AI strategy sessions",
-      "Ongoing tool evaluation",
-      "Implementation support",
-      "AI technology updates",
-      "Priority access to new services"
+      "End-to-end workflow analysis",
+      "Full tech stack strategy",
+      "Vendor negotiation & coordination",
+      "Custom dashboards or reporting templates",
+      "2+ review and optimization sessions",
+      "Includes: Ongoing Support & Maintenance (3 months free)"
     ],
     buttonText: "Contact for Details",
     highlight: false,
-  },
+    color: "🔵"
+  }
 ];
 
 const containerVariants = {
@@ -93,8 +85,8 @@ export default function Packages() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-poppins">
             Our Services
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Choose the right level of AI automation guidance for your business needs.
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Choose the right level of AI automation guidance for your business needs and goals.
           </p>
         </motion.div>
 
@@ -103,7 +95,7 @@ export default function Packages() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
           {packages.map((pkg, index) => (
             <motion.div
@@ -121,6 +113,9 @@ export default function Packages() {
                 </div>
               )}
               <div className="p-8">
+                <div className="text-3xl mb-4" aria-hidden="true">
+                  {pkg.color}
+                </div>
                 <h3 className="text-2xl font-semibold mb-2 font-poppins">
                   {pkg.title}
                 </h3>
@@ -132,7 +127,14 @@ export default function Packages() {
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
                       <Check className="h-5 w-5 text-accent mr-2" />
-                      <span>{feature}</span>
+                      <span className={feature.includes("Support & Maintenance") ? "font-medium text-primary flex items-center" : ""}>
+                        {feature}
+                        {feature.includes("Support & Maintenance") && 
+                          <span className="ml-1 inline-flex items-center justify-center">
+                            <span className="text-xs">🛠️</span>
+                          </span>
+                        }
+                      </span>
                     </li>
                   ))}
                 </ul>

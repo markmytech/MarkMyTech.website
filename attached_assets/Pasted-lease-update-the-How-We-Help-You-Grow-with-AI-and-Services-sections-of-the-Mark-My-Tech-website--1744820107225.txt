@@ -1,0 +1,82 @@
+lease update the “How We Help You Grow with AI” and “Services” sections of the Mark My Tech website with the following content and formatting. Make sure the layout is clean, mobile-friendly, and visually consistent. Use icons or styled headings where helpful. Also, ensure all service blocks are the same size and not overflowing.
+
+✅ Updated “How We Help You Grow with AI” Section:
+Title:
+How We Help You Grow with AI
+Our streamlined process helps you navigate the AI landscape without the technical complexity—and we’re here with you every step of the way.
+
+Steps:
+
+🔍 Audit Your Workflows
+We analyze your current operations, identify bottlenecks, and map out processes that are ideal for automation.
+
+🚀 Identify Automation Opportunities
+We pinpoint where AI can deliver the most impact—saving you time, reducing manual errors, and improving overall customer experience.
+
+🛠️ Recommend Tools and Vendors
+You’ll receive a personalized tech stack tailored to your goals and budget, using trusted AI tools and automation platforms.
+
+🤝 Ongoing Support & Maintenance (New!)
+We help you stay on track even after implementation with optional support services:
+
+Quarterly reviews of your automation tools
+
+Email-based assistance for troubleshooting
+
+Updates on AI tool changes that could affect your business
+
+On-demand consultation at a discounted rate
+
+💼 Updated Services/Packages Section:
+Ensure all service blocks are displayed in a single row (responsive on smaller screens) with consistent size, color, and layout.
+
+🟢 Starter Plan
+Perfect for small businesses exploring automation.
+
+Initial 30-min consultation
+
+Workflow audit for 1–2 processes
+
+Tool and vendor recommendations
+
+Personalized automation report
+
+Add-on: Ongoing Support & Maintenance (optional)
+
+🟡 Growth Plan
+Ideal for growing businesses ready to scale AI integration.
+
+Full workflow audit (up to 5 processes)
+
+ROI-focused automation strategy
+
+Tool and vendor sourcing
+
+Implementation roadmap
+
+1 follow-up review session
+
+Add-on: Ongoing Support & Maintenance (discounted)
+
+🔵 Custom Enterprise Plan
+Tailored for larger organizations with complex operations.
+
+End-to-end workflow analysis
+
+Full tech stack strategy
+
+Vendor negotiation & coordination
+
+Custom dashboards or reporting templates
+
+2+ review and optimization sessions
+
+Includes: Ongoing Support & Maintenance (3 months free)
+
+Please also:
+
+Use clean, modern styling for the sections.
+
+Ensure consistent font sizes, spacing, and icons.
+
+Highlight “Support & Maintenance” with either a badge or icon (e.g., 🛠️ or 🤝).
