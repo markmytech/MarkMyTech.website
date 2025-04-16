@@ -147,8 +147,8 @@ const itemVariants = {
 };
 
 export default function WhoItsFor() {
-  // Start with the first category open by default
-  const [openCategories, setOpenCategories] = useState<number[]>([0]);
+  // Start with all categories closed by default
+  const [openCategories, setOpenCategories] = useState<number[]>([]);
 
   const toggleCategory = (index: number) => {
     const isOpening = !openCategories.includes(index);
