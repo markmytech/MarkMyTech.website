@@ -50,12 +50,22 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <a href="#home" className="flex items-center">
-              <img 
-                src="/logo.svg" 
-                alt="Mark My Tech Logo" 
-                className="h-10 w-auto"
-                style={{ maxWidth: '180px' }} 
-              />
+              <div className="flex items-center">
+                <div className="h-10 w-10 rounded-md bg-gradient-to-tr from-primary to-primary/70 flex items-center justify-center mr-2 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-white opacity-20 rounded-full"></div>
+                  <span className="text-white text-2xl font-bold">M</span>
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex">
+                    <span className="text-2xl font-bold font-poppins">
+                      <span className="text-primary">Mark</span>
+                      <span className="text-accent">My</span>
+                      <span className="text-primary">Tech</span>
+                    </span>
+                  </div>
+                  <span className="text-xs text-gray-500 -mt-1">AI Automation Solutions</span>
+                </div>
+              </div>
               <span className="sr-only">Mark My Tech</span>
             </a>
           </div>

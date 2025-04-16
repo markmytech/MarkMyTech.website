@@ -10,12 +10,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <a href="#home" className="flex items-center">
-              <img 
-                src="/logo-white.svg" 
-                alt="Mark My Tech Logo" 
-                className="h-10 w-auto"
-                style={{ maxWidth: '180px' }} 
-              />
+              <div className="flex items-center">
+                <div className="h-10 w-10 rounded-md bg-gradient-to-tr from-white to-white/70 flex items-center justify-center mr-2 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-primary opacity-20 rounded-full"></div>
+                  <span className="text-primary text-2xl font-bold">M</span>
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex">
+                    <span className="text-2xl font-bold font-poppins">
+                      <span className="text-white">Mark</span>
+                      <span className="text-accent">My</span>
+                      <span className="text-white">Tech</span>
+                    </span>
+                  </div>
+                  <span className="text-xs text-gray-300 -mt-1">AI Automation Solutions</span>
+                </div>
+              </div>
             </a>
             <p className="mt-4 text-gray-200">Your Blueprint for AI-Powered Growth.</p>
             <div className="flex space-x-4 mt-4">
