@@ -48,7 +48,7 @@ export default function Header() {
             <a href="#home" className="flex items-center">
               <span className="text-2xl font-bold font-poppins">
                 <span className="text-primary">Mark</span>
-                <span className="text-[#0B0B45]">My</span>
+                <span className="text-secondary">My</span>
                 <span className="text-primary">Tech</span>
               </span>
             </a>
@@ -69,7 +69,7 @@ export default function Header() {
 
           <div className="hidden md:block">
             <Button asChild>
-              <a href="#contact">Book an Audit</a>
+              <a href="#contact">Book a Free Consultation</a>
             </Button>
           </div>
 
@@ -109,7 +109,7 @@ export default function Header() {
                 ))}
                 <Button asChild className="mt-2">
                   <a href="#contact" onClick={closeMenu}>
-                    Book an Audit
+                    Book a Free Consultation
                   </a>
                 </Button>
               </div>

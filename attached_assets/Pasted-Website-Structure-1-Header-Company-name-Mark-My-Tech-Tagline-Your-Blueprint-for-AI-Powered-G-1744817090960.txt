@@ -1,0 +1,110 @@
+Website Structure:
+1. Header:
+
+Company name: Mark My Tech
+
+Tagline: "Your Blueprint for AI-Powered Growth."
+
+Navigation: Home, Services, About, FAQ, Contact
+
+CTA (Call to Action): "Book a Free Consultation" (link to contact section)
+
+2. Hero Section:
+
+Headline: “Turn Confusion into Clarity with AI Automation”
+
+Subheadline: “Mark My Tech helps businesses uncover automation opportunities and recommend the right AI tools — no coding required.”
+
+CTA Button: “Get Your Free Consultation” (link to contact section)
+
+3. How It Works Section:
+
+Title: “How We Help You Grow with AI”
+
+Steps:
+
+Audit your business processes
+
+Identify AI automation opportunities
+
+Recommend tools and vendors for seamless implementation
+
+4. Services Section:
+
+Title: “Our Services”
+
+Services List:
+
+Free 30-Minute Consultation
+An introductory, no-obligation consultation where we discuss your business and explore automation opportunities.
+
+Starter Plan – $500
+A simplified audit of your current workflows with a focus on the most essential areas for automation. Includes a basic report with 3 key recommendations and an introductory guide on automation tools.
+
+AI Automation Blueprint – $2,000
+A comprehensive audit of your workflows, customized tool recommendations, and an actionable roadmap for AI automation.
+
+Ongoing Advisor – Custom Pricing
+Monthly check-ins to optimize and scale your AI automation efforts with expert guidance.
+
+CTA Button: “Book Your Free Consultation”
+
+5. About Section:
+
+Title: “About Mark My Tech”
+
+Content:
+"At Mark My Tech, we simplify AI automation for businesses of all sizes. Our goal is to help you harness the power of AI tools to save time, increase efficiency, and grow your business — without the technical jargon or confusion."
+
+6. FAQ Section:
+
+Title: “Frequently Asked Questions”
+
+Questions:
+
+Q: Do you build or integrate AI tools?
+A: No, we don’t build or integrate tools. We focus on auditing your business and recommending the best tools to automate your processes.
+
+Q: How much do your services cost?
+A: We offer a free 30-minute consultation, after which you can choose between our Starter Plan ($500), AI Automation Blueprint service ($2,000), or ongoing advisory services (custom pricing).
+
+Q: What type of businesses do you work with?
+A: We work with small to medium-sized businesses across various industries, including ecommerce, coaching, agencies, and service-based businesses.
+
+Q: Can you help me implement the tools you recommend?
+A: We focus on strategy and recommendations. If you need help with implementation, we can refer trusted partners to assist you.
+
+Q: How long does the consultation take?
+A: The free consultation typically lasts 30 minutes and is designed to give you an overview of your automation opportunities.
+
+7. Contact Section:
+
+Title: “Let’s Talk”
+
+Contact Form:
+
+Fields: Name, Email, Message
+
+CTA Button: "Book Your Free Consultation" (links to scheduling or contact form)
+
+8. Footer Section:
+
+Social Media Links:
+
+LinkedIn: [Add your LinkedIn URL]
+
+Facebook: [Add your Facebook URL]
+
+Copyright Info: "© 2025 Mark My Tech"
+
+Design & Styling:
+Color Palette: Professional and minimal — shades of blue, teal, and neutral tones.
+
+Typography: Use modern fonts like Inter or Poppins.
+
+Layout: Clean, responsive, and mobile-friendly.
+
+Animations: Subtle hover effects and smooth scrolling.
+
+CTA Button Style: Bold, prominent color for “Book Your Free Consultation.”
+

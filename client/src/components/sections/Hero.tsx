@@ -13,7 +13,7 @@ export default function Hero() {
           >
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-poppins leading-tight">
               Turn Confusion into{" "}
-              <span className="bg-gradient-to-r from-primary to-[#0B0B45] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Clarity
               </span>{" "}
               with AI Automation
@@ -23,7 +23,7 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="shadow-lg">
-                <a href="#contact">Get Your AI Audit</a>
+                <a href="#contact">Get Your Free Consultation</a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#services">View Services</a>
