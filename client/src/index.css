@@ -5,24 +5,24 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 20%; /* #333333 - Dark Grey */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 25 100% 65%; /* #FF914D */
+    --popover-foreground: 0 0% 20%;
+    --primary: 175 100% 35%; /* #00B2A9 - Teal */
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 83% 15%; /* #0B0B45 */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 25 100% 95%;  /* #FFF0E6 - Light Orange */
+    --secondary: 0 0% 96%; /* #F4F4F4 - Light Grey */
+    --secondary-foreground: 0 0% 20%;
+    --muted: 0 0% 96%; /* #F4F4F4 - Light Grey */
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 160 83% 45%; /* #20C997 - Teal Accent */
+    --accent: 39 100% 50%; /* #FFA500 - Orange */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 25 100% 65%; /* #FF914D for focus rings */
+    --ring: 175 100% 35%; /* #00B2A9 - Teal for focus rings */
     --radius: 0.5rem;
   }
 
@@ -35,18 +35,26 @@
   }
 
   .text-secondary {
-    color: #0B0B45;
+    color: #F4F4F4;
   }
   
   .text-accent {
-    color: #20C997;
+    color: #FFA500;
   }
   
-  .bg-light-orange {
-    background-color: #FFF0E6;
+  .text-dark {
+    color: #333333;
   }
   
-  .bg-deep-navy {
-    background-color: #07072E;
+  .bg-light-grey {
+    background-color: #F4F4F4;
+  }
+  
+  .bg-teal {
+    background-color: #00B2A9;
+  }
+  
+  .bg-dark-grey {
+    background-color: #333333;
   }
 }

@@ -22,7 +22,7 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-light-orange">
+    <section id="about" className="py-20 bg-light-grey">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -39,7 +39,7 @@ export default function About() {
 
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-br from-primary to-secondary p-1 rounded-lg shadow-lg"
+            className="bg-gradient-to-br from-primary to-accent p-1 rounded-lg shadow-lg"
           >
             <div className="bg-white p-8 sm:p-10 rounded-lg">
               <p className="text-xl text-gray-700 italic mb-8">
