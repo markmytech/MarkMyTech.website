@@ -172,53 +172,55 @@ export default function Contact() {
             <Card className="bg-white shadow-md">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold mb-4 font-poppins">
-                  Book a Consultation
+                  Connect With Us
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Prefer to schedule a direct call? Use our online calendar to find a time that works for you.
+                  Follow us on social media to stay updated with the latest AI automation trends and insights.
                 </p>
-                <Button asChild variant="secondary" className="inline-flex items-center">
-                  <a 
-                    href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex items-center"
-                    data-analytics="consultation-booking"
-                  >
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Schedule a Call
-                  </a>
-                </Button>
-
-                <div className="mt-10">
-                  <h4 className="text-lg font-medium mb-4 font-poppins">
-                    Connect With Us
-                  </h4>
-                  <div className="flex space-x-4">
-                    <Button asChild variant="outline" size="icon" className="rounded-full hover:bg-primary/10">
-                      <a 
-                        href="https://www.linkedin.com/company/markmytech/" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        aria-label="LinkedIn"
-                        data-analytics="social-link-click"
-                        data-platform="linkedin"
-                      >
-                        <Linkedin className="h-5 w-5" />
-                      </a>
-                    </Button>
-                    <Button asChild variant="outline" size="icon" className="rounded-full hover:bg-primary/10">
-                      <a 
-                        href="https://www.linkedin.com/in/prajjwoltimilsina/" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        aria-label="Facebook"
-                        data-analytics="social-link-click"
-                        data-platform="facebook"
-                      >
-                        <Facebook className="h-5 w-5" />
-                      </a>
-                    </Button>
+                
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-lg font-medium mb-4 font-poppins">
+                      Social Media
+                    </h4>
+                    <div className="flex space-x-4">
+                      <Button asChild variant="outline" size="icon" className="rounded-full hover:bg-primary/10">
+                        <a 
+                          href="https://www.linkedin.com/company/markmytech/" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          aria-label="LinkedIn Company Page"
+                          data-analytics="social-link-click"
+                          data-platform="linkedin"
+                        >
+                          <Linkedin className="h-5 w-5" />
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline" size="icon" className="rounded-full hover:bg-primary/10">
+                        <a 
+                          href="https://www.linkedin.com/in/prajjwoltimilsina/" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          aria-label="LinkedIn Profile"
+                          data-analytics="social-link-click"
+                          data-platform="linkedin-profile"
+                        >
+                          <div className="flex items-center justify-center h-5 w-5">
+                            <span className="text-sm font-bold">in</span>
+                          </div>
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-medium mb-2 font-poppins">
+                      Office Hours
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Monday - Friday: 9am - 5pm<br />
+                      Weekend: By appointment only
+                    </p>
                   </div>
                 </div>
               </CardContent>
