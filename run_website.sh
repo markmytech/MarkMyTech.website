@@ -1,17 +1,42 @@
 #!/bin/bash
 
-echo "===== Mark My Tech Website Setup and Launch ====="
+echo "===== Mark My Tech Website Complete Setup ====="
 echo
-echo "This script will install dependencies and start the website"
+echo "This script will install Node.js, project dependencies, and start the website"
+echo "You may be asked for your password for some installation steps"
 echo
+
+# Check if Homebrew is installed
+if ! command -v brew &> /dev/null; then
+    echo "Homebrew is not installed. Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+    # Add Homebrew to PATH
+    if [ -f ~/.zshrc ]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [ -f ~/.bash_profile ]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+    
+    echo "Homebrew installed successfully!"
+    echo
+fi
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
-    echo "ERROR: Node.js is not installed or not in your PATH."
-    echo "Please install Node.js from https://nodejs.org/ and try again."
+    echo "Node.js is not installed. Installing Node.js with Homebrew..."
+    brew install node
+    
+    if ! command -v node &> /dev/null; then
+        echo "ERROR: Failed to install Node.js."
+        echo "Please install Node.js manually from https://nodejs.org/ and try again."
+        exit 1
+    fi
+    
+    echo "Node.js installed successfully!"
     echo
-    read -p "Press Enter to exit..."
-    exit 1
 fi
 
 # Display Node.js version
@@ -21,15 +46,14 @@ echo
 
 # Check if npm is installed
 if ! command -v npm &> /dev/null; then
-    echo "ERROR: npm is not installed or not in your PATH."
-    echo "Please install Node.js (with npm) from https://nodejs.org/ and try again."
-    echo
-    read -p "Press Enter to exit..."
+    echo "ERROR: npm is not installed."
+    echo "This is unusual as npm usually comes with Node.js."
+    echo "Please install Node.js again from https://nodejs.org/ and try again."
     exit 1
 fi
 
-# Install dependencies
-echo "Installing dependencies..."
+# Install project dependencies
+echo "Installing project dependencies..."
 echo "This may take a few minutes, please be patient."
 echo
 npm install

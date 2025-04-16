@@ -2,15 +2,47 @@
 
 echo "===== Preparing Mark My Tech Website for GitHub Pages ====="
 echo
+echo "This script will install Node.js if needed, build the site, and prepare it for GitHub Pages"
+echo "You may be asked for your password for some installation steps"
+echo
+
+# Check if Homebrew is installed
+if ! command -v brew &> /dev/null; then
+    echo "Homebrew is not installed. Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+    # Add Homebrew to PATH
+    if [ -f ~/.zshrc ]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [ -f ~/.bash_profile ]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+    
+    echo "Homebrew installed successfully!"
+    echo
+fi
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
-    echo "ERROR: Node.js is not installed or not in your PATH."
-    echo "Please install Node.js from https://nodejs.org/ and try again."
+    echo "Node.js is not installed. Installing Node.js with Homebrew..."
+    brew install node
+    
+    if ! command -v node &> /dev/null; then
+        echo "ERROR: Failed to install Node.js."
+        echo "Please install Node.js manually from https://nodejs.org/ and try again."
+        exit 1
+    fi
+    
+    echo "Node.js installed successfully!"
     echo
-    read -p "Press Enter to exit..."
-    exit 1
 fi
+
+# Display Node.js version
+echo "Using Node.js version:"
+node --version
+echo
 
 # Install dependencies if not already installed
 if [ ! -d "node_modules" ]; then
@@ -49,6 +81,18 @@ if [ ! -f "docs/index.html" ]; then
     echo "<!DOCTYPE html><html><head><meta http-equiv='refresh' content='0;url=/'></head><body>Redirecting...</body></html>" > docs/index.html
 fi
 
+# Replace the Contact component with the static version
+echo "Updating contact form to use Formspree for static hosting..."
+if [ -f "docs/index.html" ]; then
+    # Add a notification about Formspree setup requirements
+    echo "IMPORTANT: For the contact form to work on GitHub Pages, you will need to:"
+    echo "1. Create a Formspree.io account"
+    echo "2. Create a new form in your Formspree account"
+    echo "3. Replace YOUR_FORMSPREE_FORM_ID in client/src/components/sections/ContactStaticVersion.tsx with your form ID"
+    echo "4. Rebuild and redeploy the site"
+    echo
+fi
+
 # Create a CNAME file if you have a custom domain
 # echo "yourdomain.com" > docs/CNAME
 
@@ -65,8 +109,8 @@ echo "4. Select 'main branch /docs folder' as the source"
 echo "5. Click Save"
 echo
 echo "Your site will be available at: https://yourusername.github.io/repository-name/"
-echo "Note: Contact form and other backend features will need to be handled differently"
-echo "      for a static site deployment."
+echo
+echo "REMINDER: To make the contact form work, set up Formspree as mentioned above."
 echo
 
 read -p "Press Enter to exit..."

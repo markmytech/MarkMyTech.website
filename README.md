@@ -22,19 +22,19 @@ The website features:
 
 ## Running Locally
 
-### Prerequisites
+### Quick Start (No Prerequisites Needed)
 
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- npm (comes with Node.js)
-
-### Quick Start
-
-For the easiest way to run the website:
+The easiest way to run the website - our scripts will handle everything for you:
 
 1. **Windows**: Double-click the `run_website.bat` file
 2. **Mac/Linux**: Open Terminal in the project folder and run `bash run_website.sh`
 
-These scripts will install all dependencies and start the development server automatically.
+These enhanced scripts will:
+- Automatically install Node.js if it's not already on your system
+- Install all project dependencies
+- Start the development server
+
+You don't need to install anything manually!
 
 ### Manual Setup
 
