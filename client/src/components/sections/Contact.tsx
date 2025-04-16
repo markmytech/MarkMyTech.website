@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Linkedin, Facebook, Twitter } from "lucide-react";
+import { Calendar, Linkedin, Facebook, Mail, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { apiRequest } from "@/lib/queryClient";
@@ -215,12 +215,31 @@ export default function Contact() {
                   
                   <div>
                     <h4 className="text-lg font-medium mb-2 font-poppins">
+                      Email Us
+                    </h4>
+                    <div className="flex items-center space-x-2 text-gray-600">
+                      <Mail className="h-4 w-4 text-primary" />
+                      <a 
+                        href="mailto:praj@markmytech.com" 
+                        className="text-primary hover:underline"
+                        data-analytics="email-link-click"
+                      >
+                        praj@markmytech.com
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-medium mb-2 font-poppins">
                       Office Hours
                     </h4>
-                    <p className="text-gray-600 text-sm">
-                      Monday - Friday: 9am - 5pm<br />
-                      Weekend: By appointment only
-                    </p>
+                    <div className="flex items-start space-x-2 text-gray-600">
+                      <Clock className="h-4 w-4 text-primary mt-1" />
+                      <p className="text-sm">
+                        Monday - Friday: 9am - 5pm<br />
+                        Weekend: By appointment only
+                      </p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
