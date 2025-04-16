@@ -77,6 +77,8 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+                data-analytics="nav-link"
+                data-section={link.text.toLowerCase().replace(/\s+/g, '-')}
               >
                 {link.text}
               </a>
@@ -127,6 +129,9 @@ export default function Header() {
                     href={link.href}
                     onClick={closeMenu}
                     className="text-gray-700 hover:text-primary font-medium py-2 transition-colors duration-200"
+                    data-analytics="nav-link"
+                    data-section={link.text.toLowerCase().replace(/\s+/g, '-')}
+                    data-mobile="true"
                   >
                     {link.text}
                   </a>
