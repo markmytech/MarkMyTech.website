@@ -59,6 +59,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#testimonials" className="text-gray-400 hover:text-primary transition-colors duration-200">
+                  Success Stories
+                </a>
+              </li>
+              <li>
                 <a href="#about" className="text-gray-400 hover:text-primary transition-colors duration-200">
                   About
                 </a>
@@ -86,6 +91,8 @@ export default function Footer() {
                 href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                data-analytics="consultation-booking"
+                data-source="footer"
               >
                 Book Your Free Consultation
               </a>
