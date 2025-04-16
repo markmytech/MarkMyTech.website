@@ -52,6 +52,7 @@ const packages = [
       "Monthly AI strategy sessions",
       "Ongoing tool evaluation",
       "Implementation support",
+      "Ongoing Support & Maintenance",
       "AI technology updates",
       "Priority access to new services"
     ],
