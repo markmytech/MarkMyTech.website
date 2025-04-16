@@ -4,29 +4,42 @@ import { Check } from "lucide-react";
 
 const packages = [
   {
-    title: "Starter Audit",
+    title: "Free 30-Minute Consultation",
+    price: "Free",
+    description: "An introductory, no-obligation consultation where we discuss your business and explore automation opportunities.",
+    features: [
+      "Initial business review",
+      "Identify automation potential",
+      "Brief Q&A session",
+      "No obligation to continue"
+    ],
+    buttonText: "Book Free Consultation",
+    highlight: false,
+  },
+  {
+    title: "Starter Plan",
     price: "$500",
-    description: "Quick review with focused recommendations to get you started.",
+    description: "A simplified audit of your current workflows with a focus on the most essential areas for automation.",
     features: [
       "Focused workflow assessment",
-      "Top 3 automation opportunities",
-      "Tool recommendations",
-      "90-minute strategy call",
+      "3 key recommendations",
+      "Introductory guide on automation tools",
+      "90-minute strategy call"
     ],
     buttonText: "Get Started",
     highlight: false,
   },
   {
-    title: "Automation Blueprint",
+    title: "AI Automation Blueprint",
     price: "$2,000",
-    description: "Comprehensive audit with detailed implementation plan.",
+    description: "A comprehensive audit of your workflows, customized tool recommendations, and an actionable roadmap for AI automation.",
     features: [
       "Complete business workflow mapping",
       "Full automation opportunity analysis",
       "Detailed tool stack recommendations",
       "Implementation roadmap",
       "ROI projections",
-      "Two strategy sessions",
+      "Two strategy sessions"
     ],
     buttonText: "Get Your Blueprint",
     highlight: true,
@@ -34,13 +47,13 @@ const packages = [
   {
     title: "Ongoing Advisor",
     price: "Custom",
-    description: "Continuous AI strategy support for evolving businesses.",
+    description: "Monthly check-ins to optimize and scale your AI automation efforts with expert guidance.",
     features: [
       "Monthly AI strategy sessions",
       "Ongoing tool evaluation",
       "Implementation support",
       "AI technology updates",
-      "Priority access to new services",
+      "Priority access to new services"
     ],
     buttonText: "Contact for Details",
     highlight: false,
@@ -78,7 +91,7 @@ export default function Packages() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-poppins">
-            Packages
+            Our Services
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Choose the right level of AI automation guidance for your business needs.
