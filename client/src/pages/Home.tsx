@@ -8,6 +8,7 @@ import About from "@/components/sections/About";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Testimonials from "@/components/sections/Testimonials";
+import RecommendationQuiz from "@/components/sections/RecommendationQuiz";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
@@ -42,6 +43,7 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <HowItWorks />
+        <RecommendationQuiz />
         <WhoItsFor />
         <Packages />
         <Testimonials />

@@ -8,6 +8,7 @@ const navLinks = [
   { text: "Home", href: "#home" },
   { text: "Services", href: "#pricing" },
   { text: "How We Help", href: "#services" },
+  { text: "Find Your Fit", href: "#quiz" },
   { text: "Success Stories", href: "#testimonials" },
   { text: "About", href: "#about" },
   { text: "FAQ", href: "#faq" },
