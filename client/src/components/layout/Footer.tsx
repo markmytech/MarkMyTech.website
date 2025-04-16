@@ -43,8 +43,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-400 hover:text-primary transition-colors duration-200">
+                <a href="#pricing" className="text-gray-400 hover:text-primary transition-colors duration-200">
                   Services
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-gray-400 hover:text-primary transition-colors duration-200">
+                  How We Help
                 </a>
               </li>
               <li>
