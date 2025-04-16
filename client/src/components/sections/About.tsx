@@ -22,7 +22,7 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-light-orange">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -39,15 +39,15 @@ export default function About() {
 
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-br from-primary to-blue-600 p-1 rounded-lg shadow-lg"
+            className="bg-gradient-to-br from-primary to-secondary p-1 rounded-lg shadow-lg"
           >
             <div className="bg-white p-8 sm:p-10 rounded-lg">
               <p className="text-xl text-gray-700 italic mb-8">
                 "We simplify AI so business owners can focus on results. No hype, no jargon — just smart automation strategy that works."
               </p>
               <div className="flex items-center">
-                <div className="bg-gray-200 h-12 w-12 rounded-full flex items-center justify-center">
-                  <User className="h-6 w-6 text-gray-500" />
+                <div className="bg-accent h-12 w-12 rounded-full flex items-center justify-center">
+                  <User className="h-6 w-6 text-white" />
                 </div>
                 <div className="ml-4">
                   <p className="font-medium">Founder</p>

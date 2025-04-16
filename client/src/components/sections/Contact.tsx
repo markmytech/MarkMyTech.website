@@ -168,7 +168,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:pl-8">
-            <Card className="bg-gray-50 shadow-md">
+            <Card className="bg-white shadow-md">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold mb-4 font-poppins">
                   Book a Consultation

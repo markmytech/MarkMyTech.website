@@ -73,10 +73,10 @@ export default function WhoItsFor() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-teal-50 rounded-lg p-6 text-center transition-all duration-300 hover:bg-teal-100 hover:shadow-lg"
+              className="bg-light-orange rounded-lg p-6 text-center transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex justify-center mb-4">
-                <type.icon className="h-10 w-10 text-primary" />
+                <type.icon className="h-10 w-10 text-accent" />
               </div>
               <h3 className="text-xl font-semibold mb-2 font-poppins">
                 {type.title}
