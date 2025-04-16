@@ -69,11 +69,11 @@ export default function HowItWorks() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
         >
           {steps.map((step) => (
             <motion.div key={step.number} variants={itemVariants}>
-              <Card className="h-full relative">
+              <Card className="h-full relative bg-gray-50">
                 <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold z-10">
                   {step.number}
                 </div>

@@ -103,13 +103,13 @@ export default function Packages() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`bg-white rounded-lg shadow-lg overflow-hidden ${
+              className={`bg-gray-50 rounded-lg shadow-lg overflow-hidden ${
                 pkg.highlight
                   ? "transform scale-105 border-t-4 border-primary shadow-xl"
                   : ""

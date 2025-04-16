@@ -12,11 +12,10 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 font-poppins leading-tight">
-              Turn Confusion into{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Clarity
+                AI Automation
               </span>{" "}
-              with AI Automation
+              for Smarter, Faster Business Decisions
             </h1>
             <p className="text-lg text-gray-600 mb-8">
               Mark My Tech helps businesses uncover automation opportunities and recommends the right AI tools — no coding required.
