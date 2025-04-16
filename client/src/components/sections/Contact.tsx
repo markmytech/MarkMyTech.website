@@ -51,6 +51,39 @@ export default function Contact() {
     try {
       await apiRequest("POST", "/api/contact", formData);
       
+      // Track successful form submission
+      trackEvent({
+        category: 'contact',
+        action: 'form_submit_success',
+        label: 'contact_form',
+        attributes: {
+          form_length: formData.message.length
+        }
+      });
+      
+      // Track conversion
+      if (window.analytics?.trackConversion) {
+        window.analytics.trackConversion(
+          'contact_form_submit',
+          1,
+          {
+            message_topic: formData.message.substring(0, 30) + '...',
+            message_length: formData.message.length
+          }
+        );
+      }
+      
+      // Track funnel stage
+      if (window.analytics?.trackFunnelStage) {
+        window.analytics.trackFunnelStage({
+          stage: 'contact_submitted',
+          pageSection: 'contact',
+          attributes: {
+            previous_page: window.location.pathname
+          }
+        });
+      }
+      
       toast({
         title: "Message sent!",
         description: "We'll get back to you as soon as possible.",
@@ -62,6 +95,16 @@ export default function Contact() {
         message: "",
       });
     } catch (error) {
+      // Track form submission error
+      trackEvent({
+        category: 'contact',
+        action: 'form_submit_error',
+        label: 'contact_form',
+        attributes: {
+          error: String(error).substring(0, 100)
+        }
+      });
+      
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
