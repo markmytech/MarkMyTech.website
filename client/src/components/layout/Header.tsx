@@ -74,6 +74,8 @@ export default function Header() {
                 href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                data-analytics="consultation-booking"
+                data-source="header"
               >
                 Book a Free Consultation
               </a>

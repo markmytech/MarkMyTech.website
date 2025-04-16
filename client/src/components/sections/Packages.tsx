@@ -143,7 +143,15 @@ export default function Packages() {
                   variant={pkg.highlight ? "default" : "outline"}
                   className="w-full"
                 >
-                  <a href="#contact">{pkg.buttonText}</a>
+                  <a 
+                    href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    data-analytics="package-cta"
+                    data-package-type={pkg.title}
+                  >
+                    {pkg.buttonText}
+                  </a>
                 </Button>
               </div>
             </motion.div>

@@ -160,6 +160,7 @@ export default function Contact() {
                   type="submit" 
                   className="w-full" 
                   disabled={isSubmitting}
+                  data-analytics="contact-form-submit"
                 >
                   {isSubmitting ? "Sending..." : "Let's Talk"}
                 </Button>
@@ -182,6 +183,7 @@ export default function Contact() {
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="flex items-center"
+                    data-analytics="consultation-booking"
                   >
                     <Calendar className="mr-2 h-4 w-4" />
                     Schedule a Call
