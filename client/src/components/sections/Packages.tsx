@@ -109,10 +109,10 @@ export default function Packages() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`bg-gray-50 rounded-lg shadow-lg overflow-hidden ${
+              className={`bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
                 pkg.highlight
                   ? "transform scale-105 border-t-4 border-primary shadow-xl"
-                  : ""
+                  : "hover:translate-y-[-5px]"
               }`}
             >
               {pkg.highlight && (

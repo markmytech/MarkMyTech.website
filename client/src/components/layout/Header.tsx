@@ -8,6 +8,7 @@ const navLinks = [
   { text: "Home", href: "#home" },
   { text: "Services", href: "#pricing" },
   { text: "How We Help", href: "#services" },
+  { text: "Success Stories", href: "#testimonials" },
   { text: "About", href: "#about" },
   { text: "FAQ", href: "#faq" },
   { text: "Contact", href: "#contact" },
@@ -122,6 +123,8 @@ export default function Header() {
                     target="_blank" 
                     rel="noopener noreferrer"
                     onClick={closeMenu}
+                    data-analytics="consultation-booking"
+                    data-source="mobile-menu"
                   >
                     Book a Free Consultation
                   </a>

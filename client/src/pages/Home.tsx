@@ -7,6 +7,7 @@ import Packages from "@/components/sections/Packages";
 import About from "@/components/sections/About";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
+import Testimonials from "@/components/sections/Testimonials";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
@@ -43,6 +44,7 @@ export default function Home() {
         <HowItWorks />
         <WhoItsFor />
         <Packages />
+        <Testimonials />
         <About />
         <Faq />
         <Contact />
