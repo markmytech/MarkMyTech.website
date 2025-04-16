@@ -74,11 +74,26 @@ cp -r dist/* docs/
 # Create a .nojekyll file (prevents GitHub from processing the site with Jekyll)
 touch docs/.nojekyll
 
-# Create a simple index.html redirect if needed for compatibility
-# Normally not needed but added for robustness
-if [ ! -f "docs/index.html" ]; then
-    echo "Creating index.html redirect..."
-    echo "<!DOCTYPE html><html><head><meta http-equiv='refresh' content='0;url=/'></head><body>Redirecting...</body></html>" > docs/index.html
+# Copy public/index.html to the root for better compatibility
+echo "Creating a proper index.html in the root..."
+if [ -f "docs/public/index.html" ]; then
+    cp docs/public/index.html docs/index.html
+fi
+
+# Fix the asset paths in all index.html files for GitHub Pages compatibility
+echo "Fixing asset paths for GitHub Pages..."
+if [ -f "docs/index.html" ]; then
+    # Update the main index.html
+    sed -i'.bak' -e 's|src="/assets/|src="./public/assets/|g' docs/index.html
+    sed -i'.bak' -e 's|href="/assets/|href="./public/assets/|g' docs/index.html
+    rm -f docs/index.html.bak
+fi
+
+if [ -f "docs/public/index.html" ]; then
+    # Update the public/index.html
+    sed -i'.bak' -e 's|src="/assets/|src="./assets/|g' docs/public/index.html
+    sed -i'.bak' -e 's|href="/assets/|href="./assets/|g' docs/public/index.html
+    rm -f docs/public/index.html.bak
 fi
 
 # Replace the Contact component with the static version
