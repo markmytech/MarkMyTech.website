@@ -151,11 +151,33 @@ export default function WhoItsFor() {
   const [openCategories, setOpenCategories] = useState<number[]>([0]);
 
   const toggleCategory = (index: number) => {
+    const isOpening = !openCategories.includes(index);
+    
+    // Update state
     setOpenCategories(prev =>
       prev.includes(index)
         ? prev.filter(item => item !== index)
         : [...prev, index]
     );
+    
+    // Track the interaction for analytics if we're opening a category
+    if (isOpening && typeof window !== 'undefined') {
+      const category = audienceCategories[index];
+      const analyticsEvent = {
+        category: 'audience_segments',
+        action: 'segment_opened',
+        label: category.title,
+        attributes: {
+          segment_id: index,
+          segment_name: category.title
+        }
+      };
+      
+      // Use the window object to access our analytics methods
+      if (window.analytics?.trackEvent) {
+        window.analytics.trackEvent(analyticsEvent);
+      }
+    }
   };
 
   return (

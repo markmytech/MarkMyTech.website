@@ -146,9 +146,9 @@ export const trackConversion = (
   const conversionData: ConversionData = {
     conversionType,
     value,
-    source: getParameterByName('utm_source'),
-    medium: getParameterByName('utm_medium'),
-    campaign: getParameterByName('utm_campaign'),
+    source: getParameterByName('utm_source') || undefined,
+    medium: getParameterByName('utm_medium') || undefined,
+    campaign: getParameterByName('utm_campaign') || undefined,
     attributes
   };
   
@@ -209,7 +209,7 @@ export const trackFunnelStage = (data: FunnelStage): void => {
     label: data.pageSection,
     attributes: {
       ...data.attributes,
-      previous_stage: data.previousStage,
+      previous_stage: data.previousStage || '',
       funnel_progression: data.stage
     }
   });
@@ -411,7 +411,7 @@ const findAnalyticsElement = (element: HTMLElement | null): HTMLElement | null =
 /**
  * Find the page section this element belongs to
  */
-const findPageSection = (element: HTMLElement): string | null => {
+const findPageSection = (element: HTMLElement): string | undefined => {
   let currentElement = element;
   
   // Check for section id on parents
@@ -428,7 +428,7 @@ const findPageSection = (element: HTMLElement): string | null => {
     currentElement = currentElement.parentElement as HTMLElement;
   }
   
-  return null;
+  return undefined;
 };
 
 /**
@@ -520,7 +520,7 @@ const initFormTracking = (): void => {
         const formId = form.id || 'unknown_form';
         trackFunnelStage({
           stage: 'form_started',
-          pageSection: findPageSection(form),
+          pageSection: findPageSection(form) || undefined,
           attributes: {
             form_id: formId
           }
