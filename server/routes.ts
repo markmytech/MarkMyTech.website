@@ -15,9 +15,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Store contact in storage
       const savedContact = await storage.createContact(contactData);
       
-      // Log new contact submission in the console for visibility
-      console.log(`New contact form submission from ${savedContact.name} (${savedContact.email})`);
-      
       res.status(200).json({
         message: "Contact form submitted successfully",
         contactId: savedContact.id,
@@ -33,17 +30,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         console.error("Error saving contact:", error);
         res.status(500).json({ message: "Failed to submit contact form" });
       }
-    }
-  });
-  
-  // Admin endpoint to get all contact submissions
-  app.get("/api/admin/contacts", async (req, res) => {
-    try {
-      const contacts = await storage.getAllContacts();
-      res.status(200).json(contacts);
-    } catch (error) {
-      console.error("Error retrieving contacts:", error);
-      res.status(500).json({ message: "Failed to retrieve contacts" });
     }
   });
 
