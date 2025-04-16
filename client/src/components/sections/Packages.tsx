@@ -104,13 +104,13 @@ export default function Packages() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto grid-flow-row auto-rows-fr"
         >
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              className={`bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full ${
                 pkg.highlight
                   ? "transform scale-105 border-t-4 border-primary shadow-xl"
                   : "hover:translate-y-[-5px]"
@@ -121,39 +121,41 @@ export default function Packages() {
                   <span className="text-white font-medium">Most Popular</span>
                 </div>
               )}
-              <div className="p-8">
-                <h3 className="text-2xl font-semibold mb-2 font-poppins">
-                  {pkg.title}
-                </h3>
-                <div className="text-4xl font-bold mb-6 text-primary">
-                  {pkg.price}
+              <div className="p-8 flex flex-col h-full">
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-semibold mb-2 font-poppins">
+                    {pkg.title}
+                  </h3>
+                  <div className="text-4xl font-bold mb-6 text-primary">
+                    {pkg.price}
+                  </div>
+                  <p className="text-gray-600 mb-6">{pkg.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center">
+                        <Check className="h-5 w-5 text-accent mr-2 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-gray-600 mb-6">{pkg.description}</p>
-                <ul className="space-y-3 mb-8">
-                  {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center">
-                      <Check className="h-5 w-5 text-accent mr-2" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="px-8 pb-8">
-                <Button
-                  asChild
-                  variant={pkg.highlight ? "default" : "outline"}
-                  className="w-full"
-                >
-                  <a 
-                    href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    data-analytics="package-cta"
-                    data-package-type={pkg.title}
+                <div className="mt-auto pt-4">
+                  <Button
+                    asChild
+                    variant={pkg.highlight ? "default" : "outline"}
+                    className="w-full"
                   >
-                    {pkg.buttonText}
-                  </a>
-                </Button>
+                    <a 
+                      href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      data-analytics="package-cta"
+                      data-package-type={pkg.title}
+                    >
+                      {pkg.buttonText}
+                    </a>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           ))}
