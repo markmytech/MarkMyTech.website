@@ -91,7 +91,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-light-orange">
+    <section id="contact" className="py-20 bg-primary text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -103,7 +103,7 @@ export default function Contact() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-poppins">
             Contact Us
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-white max-w-2xl mx-auto">
             Ready to transform your business with AI automation? Let's talk about your needs.
           </p>
         </motion.div>
@@ -118,7 +118,7 @@ export default function Contact() {
           <motion.div variants={itemVariants}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-white mb-1">
                   Name
                 </label>
                 <Input
@@ -130,7 +130,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-1">
                   Email
                 </label>
                 <Input
@@ -143,7 +143,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-white mb-1">
                   Message
                 </label>
                 <Textarea

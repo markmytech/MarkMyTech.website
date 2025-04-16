@@ -74,7 +74,7 @@ export default function HowItWorks() {
           {steps.map((step) => (
             <motion.div key={step.number} variants={itemVariants}>
               <Card className="h-full relative">
-                <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold z-10">
+                <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold z-10">
                   {step.number}
                 </div>
                 <CardContent className="p-8">
