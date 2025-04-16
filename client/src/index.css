@@ -14,9 +14,9 @@
     --primary-foreground: 0 0% 100%;
     --secondary: 240 83% 15%; /* #0B0B45 */
     --secondary-foreground: 0 0% 100%;
-    --muted: 210 40% 96.1%;
+    --muted: 25 100% 95%;  /* #FFF0E6 - Light Orange */
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 240 83% 15%; /* #0B0B45 as accent */
+    --accent: 160 83% 45%; /* #20C997 - Teal Accent */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -36,5 +36,17 @@
 
   .text-secondary {
     color: #0B0B45;
+  }
+  
+  .text-accent {
+    color: #20C997;
+  }
+  
+  .bg-light-orange {
+    background-color: #FFF0E6;
+  }
+  
+  .bg-deep-navy {
+    background-color: #07072E;
   }
 }

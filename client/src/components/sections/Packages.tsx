@@ -81,7 +81,7 @@ const itemVariants = {
 
 export default function Packages() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -116,7 +116,7 @@ export default function Packages() {
               }`}
             >
               {pkg.highlight && (
-                <div className="bg-orange-50 py-2 text-center">
+                <div className="bg-light-orange py-2 text-center">
                   <span className="text-secondary font-medium">Most Popular</span>
                 </div>
               )}
@@ -131,7 +131,7 @@ export default function Packages() {
                 <ul className="space-y-3 mb-8">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
-                      <Check className="h-5 w-5 text-primary mr-2" />
+                      <Check className="h-5 w-5 text-accent mr-2" />
                       <span>{feature}</span>
                     </li>
                   ))}
