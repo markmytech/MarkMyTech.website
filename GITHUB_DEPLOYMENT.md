@@ -1,71 +1,88 @@
 # GitHub Pages Deployment Guide for Mark My Tech
 
-## Repository-Specific Information
-- **Repository Name**: MarkMyTech.website
-- **GitHub Pages URL**: https://markymtech.github.io/MarkMyTech.website/
+## CRITICAL: CASE SENSITIVITY IN URLS
 
-## Setup Steps
+The repository name **MarkMyTech.website** contains uppercase letters and a period. GitHub Pages URLs are **CASE SENSITIVE**.
+
+- **Correct URL**: https://markymtech.github.io/MarkMyTech.website/
+- **Incorrect URL**: https://markymtech.github.io/markmytech.website/ (will show 404)
+
+## Complete Setup Instructions
 
 1. **Push your code to GitHub**
    - Make sure you've pushed all files including the `/docs` directory
+   - Verify that `.nojekyll` exists in the `/docs` folder (prevents Jekyll processing)
 
 2. **Configure GitHub Pages in Settings**
    - Go to your repository's **Settings** tab
    - Find the **Pages** section in the left sidebar
    - Under **Source**, select "Deploy from a branch"
    - Select the branch containing your code (typically "main")
-   - Select the "/docs" folder
+   - In the folder dropdown, select "/docs"
    - Click **Save**
 
-3. **Check for successful deployment**
-   - Look for the green success message with the site URL
-   - Note: Deployment may take a few minutes to complete
+3. **Wait for Deployment (5-10 minutes)**
+   - Initial deployment can take up to 10 minutes
+   - You can monitor progress in the "Actions" tab
 
-## Troubleshooting Common Issues
+4. **Access Your Site Using The Exact URL**
+   - Use the EXACT URL: https://markymtech.github.io/MarkMyTech.website/
+   - Note the capital letters! GitHub Pages URLs are case-sensitive
 
-### 404 Error After Deployment
+## Troubleshooting 404 Errors
 
 If you see a 404 error after deployment, check:
 
-1. **Repository Visibility**
-   - Make sure the repository is public or GitHub Pages is enabled for private repos
+1. **URL Case Sensitivity**
+   - Make sure you're using the exact repository name with correct capitalization
+   - Use: `https://markymtech.github.io/MarkMyTech.website/` (not lowercase)
 
-2. **Proper Branch & Folder Selection**
-   - Verify you've selected the correct branch and "/docs" folder in GitHub Pages settings
+2. **Repository and GitHub Pages Settings**
+   - Verify the repository is public
+   - Confirm "/docs" folder is selected as the source in GitHub Pages settings
+   - Check if GitHub shows a green success message in Pages settings
 
-3. **File Existence**
-   - Confirm the following files exist in your docs directory:
-     - index.html
-     - 404.html
-     - .nojekyll (to prevent Jekyll processing)
+3. **File Verification**
+   - Run this checklist for required files in the `/docs` folder:
+     - [✓] index.html
+     - [✓] 404.html
+     - [✓] .nojekyll
+     - [✓] assets folder with CSS/JS files
 
-4. **URL Structure**
-   - The site will be available at: `https://[username].github.io/[repository-name]/`
-   - If using a custom domain, set it up in the GitHub Pages settings
+4. **Browser Cache Issues**
+   - Try accessing the site in an incognito/private browser window
+   - Or clear your browser cache before trying again
 
-5. **Repository Name with Special Characters**
-   - Since your repository name "MarkMyTech.website" contains uppercase letters and a period:
-     - We've updated `docs/index.html` with the exact repository name:
-     ```js
-     window.GITHUB_PAGES_ENV = {
-       basePath: '/MarkMyTech.website',  // Exactly matches the repository name
-       isGitHubPages: true
-     };
-     ```
-   - The router in App.tsx has also been configured to handle this specific repository name
-   - This ensures GitHub Pages properly routes your SPA application
+5. **Wait Longer For First Deployment**
+   - First GitHub Pages deployment can take up to 10 minutes
+   - Subsequent deployments are usually faster (2-5 minutes)
 
-### First-time Deployment
+## Manual Fixes If Still Seeing 404s
 
-If this is your first deployment:
-- It might take up to 10 minutes for GitHub Pages to build and deploy your site
-- Check the "Actions" tab to monitor deployment progress
+If you're still experiencing 404 errors:
 
-## Testing GitHub Pages Locally
+1. **Create a standalone index.html** in the root of your repository with a redirect:
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <meta http-equiv="refresh" content="0; url=https://markymtech.github.io/MarkMyTech.website/">
+   </head>
+   <body>
+     Redirecting to <a href="https://markymtech.github.io/MarkMyTech.website/">Mark My Tech</a>
+   </body>
+   </html>
+   ```
 
-To test your GitHub Pages setup locally:
-1. Navigate to the `docs` directory
-2. Run `node test-server.js` to start a local server
-3. Visit http://localhost:8080 in your browser
+2. **Contact GitHub Support** if issues persist after trying all troubleshooting steps
 
-Remember that GitHub Pages is intended for static sites only - the Express backend will not function in the GitHub Pages environment.
+## Testing Locally
+
+Before deploying to GitHub Pages, test your site locally:
+
+1. Navigate to the `docs` directory in your terminal
+2. Install express if needed: `npm install express`
+3. Run: `node test-server.js`
+4. Visit http://localhost:3000 in your browser
+
+Note: The Express backend will not function in GitHub Pages as it's a static hosting platform.

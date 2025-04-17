@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Mark My Tech</title>
+  <meta http-equiv="refresh" content="0; url=https://markymtech.github.io/MarkMyTech.website/">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-color: #f5f5f5;
+      color: #333;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      max-width: 600px;
+      padding: 30px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #00B2A9;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    a {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00B2A9;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    a:hover {
+      background-color: #008e85;
+    }
+    .loader {
+      margin-top: 20px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #00B2A9;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mark My Tech</h1>
+    <p>You are being redirected to the Mark My Tech website...</p>
+    <a href="https://markymtech.github.io/MarkMyTech.website/">Click here if you are not redirected automatically</a>
+    <div class="loader"></div>
+  </div>
+  <script>
+    setTimeout(function() {
+      window.location.href = "https://markymtech.github.io/MarkMyTech.website/";
+    }, 1500);
+  </script>
+</body>
+</html>
