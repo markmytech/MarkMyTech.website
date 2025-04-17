@@ -14,9 +14,9 @@ import {
 const mainNavLinks = [
   { text: "Home", href: "#home" },
   { text: "Services", href: "#pricing" },
+  { text: "Contact", href: "#contact" },
   { text: "About", href: "#about" },
   { text: "FAQ", href: "#faq" },
-  { text: "Contact", href: "#contact" },
 ];
 
 // Sections dropdown items
@@ -27,10 +27,19 @@ const sectionsLinks = [
   { text: "Success Stories", href: "#testimonials" },
 ];
 
-// All nav links for mobile view
+// All nav links for mobile view - reorder to make Contact appear after Services
 const allNavLinks = [
-  ...mainNavLinks,
-  ...sectionsLinks
+  // Home (first)
+  mainNavLinks[0],
+  // Services (second)
+  mainNavLinks[1],
+  // Contact (third)
+  mainNavLinks[2],
+  // Sections dropdown items
+  ...sectionsLinks,
+  // About and FAQ (last)
+  mainNavLinks[3],
+  mainNavLinks[4]
 ];
 
 export default function Header() {
