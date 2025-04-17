@@ -88,21 +88,27 @@ fi
 # Fix the asset paths in all index.html files for GitHub Pages compatibility
 echo "Fixing asset paths for GitHub Pages..."
 if [ -f "docs/index.html" ]; then
-    # Update the main index.html to use simplified asset paths
-    sed -i'.bak' -e 's|src="/assets/|src="./assets/|g' docs/index.html
-    sed -i'.bak' -e 's|href="/assets/|href="./assets/|g' docs/index.html
-    
-    # Also ensure any references to public/assets are updated to just assets
-    sed -i'.bak' -e 's|src="./public/assets/|src="./assets/|g' docs/index.html
-    sed -i'.bak' -e 's|href="./public/assets/|href="./assets/|g' docs/index.html
-    rm -f docs/index.html.bak
+    # Create a temporary file
+    awk '{
+        gsub(/src="\/assets\//, "src=\"./assets/");
+        gsub(/href="\/assets\//, "href=\"./assets/");
+        gsub(/src=".\/public\/assets\//, "src=\"./assets/");
+        gsub(/href=".\/public\/assets\//, "href=\"./assets/");
+        print;
+    }' docs/index.html > docs/index.html.new
+    mv docs/index.html.new docs/index.html
 fi
 
 if [ -f "docs/public/index.html" ]; then
-    # Update the public/index.html
-    sed -i'.bak' -e 's|src="/assets/|src="./assets/|g' docs/public/index.html
-    sed -i'.bak' -e 's|href="/assets/|href="./assets/|g' docs/public/index.html
-    rm -f docs/public/index.html.bak
+    # Use the same awk approach for the public/index.html file
+    awk '{
+        gsub(/src="\/assets\//, "src=\"./assets/");
+        gsub(/href="\/assets\//, "href=\"./assets/");
+        gsub(/src=".\/public\/assets\//, "src=\"./assets/");
+        gsub(/href=".\/public\/assets\//, "href=\"./assets/");
+        print;
+    }' docs/public/index.html > docs/public/index.html.new
+    mv docs/public/index.html.new docs/public/index.html
 fi
 
 # Replace the Contact component with the static version
@@ -193,14 +199,17 @@ if [ -f "docs/index.html" ]; then
 EOF
 )
 
-    # Use sed to insert the script right before the closing head tag
-    sed -i'.bak' "s|</head>|$TEMP_SCRIPT\n</head>|g" docs/index.html
-    rm -f docs/index.html.bak
+    # Use a different approach to insert the script before the closing head tag
+    # Create a temporary file to hold the modified content
+    awk 'BEGIN{script=ARGV[2]; ARGV[2]=""} 
+         /<\/head>/{print script} {print}' docs/index.html "$TEMP_SCRIPT" > docs/index.html.new
+    mv docs/index.html.new docs/index.html
     
-    # Also add it to the public/index.html
+    # Also add it to the public/index.html using the same approach
     if [ -f "docs/public/index.html" ]; then
-        sed -i'.bak' "s|</head>|$TEMP_SCRIPT\n</head>|g" docs/public/index.html
-        rm -f docs/public/index.html.bak
+        awk 'BEGIN{script=ARGV[2]; ARGV[2]=""} 
+             /<\/head>/{print script} {print}' docs/public/index.html "$TEMP_SCRIPT" > docs/public/index.html.new
+        mv docs/public/index.html.new docs/public/index.html
     fi
 fi
 

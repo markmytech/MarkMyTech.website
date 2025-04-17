@@ -10,7 +10,29 @@
       height: 100%;
       overflow: hidden;
     }
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .header {
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .iframe-container {
+      flex-grow: 1;
+      position: relative;
+    }
     iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
@@ -18,6 +40,14 @@
   </style>
 </head>
 <body>
-  <iframe src="./index.html"></iframe>
+  <div class="container">
+    <div class="header">
+      <h1>Mark My Tech - Local Test Version</h1>
+      <p>This is a local test of the website. You can view this directly from your file system.</p>
+    </div>
+    <div class="iframe-container">
+      <iframe src="./index.html"></iframe>
+    </div>
+  </div>
 </body>
 </html>
