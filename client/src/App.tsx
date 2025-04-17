@@ -15,20 +15,42 @@ declare global {
   }
 }
 
-function Router() {
+/**
+ * GitHub Pages Router Helper
+ * 
+ * This function helps handle GitHub Pages SPA routing by:
+ * 1. Detecting GitHub Pages environment
+ * 2. Handling 404 redirects from GitHub Pages
+ * 3. Supporting repository base paths
+ */
+function useGitHubPagesRouting() {
   // Get base path from GitHub Pages environment if available
   const isGitHubPages = window.GITHUB_PAGES_ENV?.isGitHubPages || false;
   const basePath = window.GITHUB_PAGES_ENV?.basePath || '';
   
-  // GitHub Pages specific handling
+  // Check if we're on GitHub Pages and handle special routing
   if (isGitHubPages) {
-    // Handle GitHub Pages 404 redirect if needed
+    // Handle GitHub Pages 404 redirect if needed (e.g. ?/about)
     const location = window.location;
-    if (location.search.includes('?/')) {
+    if (location.search.startsWith('?/')) {
       const route = location.search.replace('?/', '/');
       console.log('GitHub Pages redirect detected:', route);
+      
+      // Replace the URL to clean it up (optional)
+      window.history.replaceState(
+        null, 
+        '', 
+        `${basePath}${route}`
+      );
     }
   }
+  
+  return { isGitHubPages, basePath };
+}
+
+function Router() {
+  // Use GitHub Pages routing helper
+  const { isGitHubPages, basePath } = useGitHubPagesRouting();
   
   return (
     <Switch>
