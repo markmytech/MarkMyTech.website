@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { TechTerm } from "@/components/ui/tech-term";
 
 const packages = [
   {
@@ -95,7 +96,10 @@ export default function Packages() {
             Our Services
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Choose the right level of AI automation guidance for your business needs.
+            Choose the right level of <TechTerm>AI Automation</TechTerm> guidance for your <TechTerm>Digital Transformation</TechTerm> needs. 
+            <span className="block mt-2 text-sm">
+              Hover over highlighted terms to learn more about tech concepts.
+            </span>
           </p>
         </motion.div>
 
@@ -132,9 +136,26 @@ export default function Packages() {
                   <p className="text-gray-600 mb-6">{pkg.description}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center">
-                        <Check className="h-5 w-5 text-accent mr-2 flex-shrink-0" />
-                        <span>{feature}</span>
+                      <li key={idx} className="flex items-start">
+                        <Check className="h-5 w-5 text-accent mr-2 flex-shrink-0 mt-0.5" />
+                        <span>
+                          {/* Apply tooltips to specific technical terms */}
+                          {feature === "ROI projections" ? (
+                            <>Return on Investment (<TechTerm>ROI</TechTerm>) projections</>
+                          ) : feature === "Focused workflow assessment" ? (
+                            <>Focused <TechTerm>Workflow Automation</TechTerm> assessment</>
+                          ) : feature === "Complete business workflow mapping" ? (
+                            <>Complete <TechTerm>Business Process Automation</TechTerm> mapping</>
+                          ) : feature === "Implementation roadmap" ? (
+                            <><TechTerm>Digital Transformation</TechTerm> roadmap</>
+                          ) : feature === "Monthly AI strategy sessions" ? (
+                            <>Monthly <TechTerm>AI Automation</TechTerm> strategy sessions</>
+                          ) : feature === "AI technology updates" ? (
+                            <><TechTerm>Machine Learning</TechTerm> technology updates</>
+                          ) : (
+                            feature
+                          )}
+                        </span>
                       </li>
                     ))}
                   </ul>

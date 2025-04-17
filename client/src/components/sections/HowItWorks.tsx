@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Search, Lightbulb, CheckCircle } from "lucide-react";
+import { TechTerm } from "@/components/ui/tech-term";
 
 const steps = [
   {
@@ -9,6 +10,7 @@ const steps = [
     description:
       "We analyze your current operations, identify bottlenecks, and map processes that can benefit from automation.",
     icon: Search,
+    terms: ["Workflow Automation", "Business Process Automation"]
   },
   {
     number: 2,
@@ -16,6 +18,7 @@ const steps = [
     description:
       "We pinpoint exactly where AI can save you time, reduce errors, and improve customer experiences.",
     icon: Lightbulb,
+    terms: ["AI Automation", "RPA"]
   },
   {
     number: 3,
@@ -23,6 +26,7 @@ const steps = [
     description:
       "We provide a personalized tech stack plan with specific AI tools that match your needs and budget.",
     icon: CheckCircle,
+    terms: ["SaaS", "ROI"]
   },
 ];
 
@@ -84,7 +88,18 @@ export default function HowItWorks() {
                   <h3 className="text-xl font-semibold mb-4 font-poppins">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <p className="text-gray-600">
+                    {step.description}
+                    {/* Display relevant technical terms with tooltips */}
+                    <span className="block mt-3 text-sm text-gray-500">
+                      Key terms: {step.terms.map((term, i) => (
+                        <span key={term}>
+                          <TechTerm>{term}</TechTerm>
+                          {i < step.terms.length - 1 && ', '}
+                        </span>
+                      ))}
+                    </span>
+                  </p>
                 </div>
               </div>
             </motion.div>
