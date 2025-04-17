@@ -67,9 +67,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Copy the built files to the docs directory
-echo "Copying built files to docs directory..."
+# Copy the built files to the docs directory in a self-contained way
+echo "Copying built files to docs directory in a self-contained structure..."
 cp -r dist/* docs/
+
+# Create a proper assets structure
+echo "Creating a simplified asset structure..."
+mkdir -p docs/assets
+cp -r docs/public/assets/* docs/assets/ 2>/dev/null || true
 
 # Create a .nojekyll file (prevents GitHub from processing the site with Jekyll)
 touch docs/.nojekyll
@@ -83,9 +88,13 @@ fi
 # Fix the asset paths in all index.html files for GitHub Pages compatibility
 echo "Fixing asset paths for GitHub Pages..."
 if [ -f "docs/index.html" ]; then
-    # Update the main index.html
-    sed -i'.bak' -e 's|src="/assets/|src="./public/assets/|g' docs/index.html
-    sed -i'.bak' -e 's|href="/assets/|href="./public/assets/|g' docs/index.html
+    # Update the main index.html to use simplified asset paths
+    sed -i'.bak' -e 's|src="/assets/|src="./assets/|g' docs/index.html
+    sed -i'.bak' -e 's|href="/assets/|href="./assets/|g' docs/index.html
+    
+    # Also ensure any references to public/assets are updated to just assets
+    sed -i'.bak' -e 's|src="./public/assets/|src="./assets/|g' docs/index.html
+    sed -i'.bak' -e 's|href="./public/assets/|href="./assets/|g' docs/index.html
     rm -f docs/index.html.bak
 fi
 
@@ -194,6 +203,34 @@ EOF
         rm -f docs/public/index.html.bak
     fi
 fi
+
+# Create a simple HTML file for testing locally
+echo "Creating test-locally.html for easy local testing..."
+cat > docs/test-locally.html << 'EOF'
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mark My Tech - Local Test</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="./index.html"></iframe>
+</body>
+</html>
+EOF
 
 # Create a CNAME file if you have a custom domain
 # echo "yourdomain.com" > docs/CNAME

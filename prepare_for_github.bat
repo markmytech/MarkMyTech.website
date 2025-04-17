@@ -217,6 +217,32 @@ if exist "docs\index.html" (
     del add_routing_script.ps1
 )
 
+:: Create a simple HTML file for testing locally
+echo Creating test-locally.html for easy local testing...
+echo ^<!DOCTYPE html^> > docs\test-locally.html
+echo ^<html^> >> docs\test-locally.html
+echo ^<head^> >> docs\test-locally.html
+echo   ^<meta charset="UTF-8"^> >> docs\test-locally.html
+echo   ^<title^>Mark My Tech - Local Test^</title^> >> docs\test-locally.html
+echo   ^<style^> >> docs\test-locally.html
+echo     body, html { >> docs\test-locally.html
+echo       margin: 0; >> docs\test-locally.html
+echo       padding: 0; >> docs\test-locally.html
+echo       height: 100%%; >> docs\test-locally.html
+echo       overflow: hidden; >> docs\test-locally.html
+echo     } >> docs\test-locally.html
+echo     iframe { >> docs\test-locally.html
+echo       width: 100%%; >> docs\test-locally.html
+echo       height: 100%%; >> docs\test-locally.html
+echo       border: none; >> docs\test-locally.html
+echo     } >> docs\test-locally.html
+echo   ^</style^> >> docs\test-locally.html
+echo ^</head^> >> docs\test-locally.html
+echo ^<body^> >> docs\test-locally.html
+echo   ^<iframe src="./index.html"^>^</iframe^> >> docs\test-locally.html
+echo ^</body^> >> docs\test-locally.html
+echo ^</html^> >> docs\test-locally.html
+
 :: Create a CNAME file if you have a custom domain
 :: echo yourdomain.com > docs\CNAME
 
