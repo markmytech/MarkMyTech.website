@@ -77,12 +77,12 @@ export default function Contact() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
         >
           <motion.div variants={itemVariants} className="bg-white p-1 rounded-lg shadow-lg">
             <div 
               className="w-full bg-white rounded-lg overflow-hidden"
-              style={{ height: '780px', boxShadow: 'inset 0 0 8px rgba(0,0,0,0.05)' }} 
+              style={{ height: '720px', boxShadow: 'inset 0 0 8px rgba(0,0,0,0.05)' }} 
               data-analytics="google-form-container"
             >
               {isFormLoading && (
@@ -132,9 +132,9 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="lg:pl-8">
-            <Card className="bg-white shadow-md">
-              <CardContent className="p-8">
+          <motion.div variants={itemVariants} className="lg:pl-8 h-full flex flex-col">
+            <Card className="bg-white shadow-lg flex-1 h-full">
+              <CardContent className="p-8 h-full flex flex-col">
                 <h3 className="text-xl font-semibold mb-4 font-poppins">
                   Connect With Us
                 </h3>
@@ -142,7 +142,7 @@ export default function Contact() {
                   Follow us on social media to stay updated with the latest AI automation trends and insights.
                 </p>
                 
-                <div className="space-y-8">
+                <div className="space-y-7 flex-1 flex flex-col justify-between">
                   <div>
                     <h4 className="text-lg font-medium mb-2 font-poppins">
                       Book a Consultation
