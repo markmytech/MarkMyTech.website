@@ -291,6 +291,20 @@ export const initAnalytics = (): void => {
   // Setup exit intent tracking
   initExitIntentTracking();
   
+  // Expose trackEvent function globally for components like tooltips
+  window.trackEvent = (eventName: string, eventData?: Record<string, any>) => {
+    // Call our internal event tracking function but avoid circular reference
+    console.log('Analytics Event:', {
+      category: 'component_interaction',
+      action: eventName,
+      attributes: eventData,
+      timestamp: new Date().toISOString(),
+      sessionId,
+      pageUrl: window.location.href,
+      referrer: document.referrer || 'direct'
+    });
+  };
+  
   // Track initial page view
   trackPageView(window.location.pathname);
   
