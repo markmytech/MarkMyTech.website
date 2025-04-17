@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { User } from "lucide-react";
+import { TechTerm } from "@/components/ui/tech-term";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -43,7 +44,7 @@ export default function About() {
           >
             <div className="bg-white p-8 sm:p-10 rounded-lg">
               <p className="text-xl text-gray-700 italic mb-8">
-                "We simplify AI so business owners can focus on results. No hype, no jargon — just smart automation strategy that works."
+                "We simplify <TechTerm>AI Automation</TechTerm> so business owners can focus on results. No hype, no jargon — just smart <TechTerm>Digital Transformation</TechTerm> strategy that works."
               </p>
               <div className="flex items-center">
                 <div className="bg-accent h-12 w-12 rounded-full flex items-center justify-center">
@@ -79,10 +80,10 @@ export default function About() {
                 Our Approach
               </h3>
               <p className="text-gray-600 mb-6">
-                At Mark My Tech, we simplify AI automation for businesses of all sizes. Our goal is to help you harness the power of AI tools to save time, increase efficiency, and grow your business — without the technical jargon or confusion.
+                At Mark My Tech, we simplify <TechTerm>AI Automation</TechTerm> for businesses of all sizes. Our goal is to help you harness the power of <TechTerm>Machine Learning</TechTerm> and <TechTerm>Workflow Automation</TechTerm> tools to save time, increase efficiency, and grow your business — without the technical jargon or confusion.
               </p>
               <p className="text-gray-600">
-                We're independent advisors with no affiliation to the tools we recommend, ensuring you get unbiased guidance tailored to your specific business needs.
+                We're independent advisors with no affiliation to the <TechTerm>SaaS</TechTerm> tools we recommend, ensuring you get unbiased guidance and measurable <TechTerm>ROI</TechTerm> tailored to your specific business needs.
               </p>
             </motion.div>
             <motion.div variants={itemVariants}>

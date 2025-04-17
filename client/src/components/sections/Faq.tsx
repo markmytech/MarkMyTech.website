@@ -5,36 +5,56 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { TechTerm } from "@/components/ui/tech-term";
 
 const faqItems = [
   {
     question: "Do you build or integrate the AI tools?",
-    answer:
-      "No — we focus purely on strategic auditing and recommendations. We help you know what to use, not how to build it.",
+    answerWithTooltips: (
+      <>
+        No — we focus purely on strategic auditing and recommendations. We help you identify the best <TechTerm>SaaS</TechTerm> solutions and <TechTerm>AI Automation</TechTerm> tools for your business needs, not how to build them.
+      </>
+    ),
   },
   {
     question: "What kind of businesses do you work with?",
-    answer:
-      "Mostly small and medium-sized service-based businesses, ecommerce brands, agencies, and solo founders looking to grow.",
+    answerWithTooltips: (
+      <>
+        Mostly small and medium-sized service-based businesses, ecommerce brands, agencies, and solo founders looking to implement <TechTerm>Digital Transformation</TechTerm> strategies to grow.
+      </>
+    ),
   },
   {
     question: "Do I need to know anything about AI to work with you?",
-    answer: "Nope! We keep it jargon-free and guide you every step of the way.",
+    answerWithTooltips: (
+      <>
+        Nope! We keep it jargon-free and guide you every step of the way. Our goal is to translate complex <TechTerm>Machine Learning</TechTerm> and <TechTerm>Natural Language Processing</TechTerm> concepts into plain business solutions.
+      </>
+    ),
   },
   {
     question: "Can you recommend people to help implement the tools?",
-    answer:
-      "Yes — we have a list of trusted partners and freelancers we can refer you to.",
+    answerWithTooltips: (
+      <>
+        Yes — we have a list of trusted partners and freelancers that specialize in <TechTerm>API Integration</TechTerm> and <TechTerm>Business Process Automation</TechTerm> that we can refer you to.
+      </>
+    ),
   },
   {
     question: "How fast can I see results?",
-    answer:
-      "Many clients start saving time within days of implementing the tools we recommend. It depends on the complexity of your workflow.",
+    answerWithTooltips: (
+      <>
+        Many clients start saving time within days of implementing the tools we recommend. The <TechTerm>ROI</TechTerm> depends on the complexity of your <TechTerm>Workflow Automation</TechTerm> needs.
+      </>
+    ),
   },
   {
     question: "What if I'm already using some tools?",
-    answer:
-      "Great! We can audit and optimize what you're already doing, then fill in the gaps.",
+    answerWithTooltips: (
+      <>
+        Great! We can audit your existing <TechTerm>CRM</TechTerm> and automation systems, then provide <TechTerm>KPI</TechTerm>-driven recommendations to optimize them and fill in the gaps.
+      </>
+    ),
   },
 ];
 
@@ -72,7 +92,10 @@ export default function Faq() {
             Frequently Asked Questions
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Everything you need to know about our AI automation services.
+            Everything you need to know about our <TechTerm>AI Automation</TechTerm> and <TechTerm>Digital Transformation</TechTerm> services.
+            <span className="block mt-2 text-sm">
+              Hover over highlighted terms to learn more about technical concepts.
+            </span>
           </p>
         </motion.div>
 
@@ -91,7 +114,7 @@ export default function Faq() {
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-4 text-gray-600">
-                    {item.answer}
+                    {item.answerWithTooltips}
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
