@@ -52,56 +52,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="description" content="Mark My Tech helps businesses uncover automation opportunities and recommends the right AI tools — no coding required.">
-    <!-- GitHub Pages relative base path -->
+    <!-- Base path for GitHub Pages -->
     <base href="./">
     <!-- GitHub Pages environment configuration -->
     <script>
       // Set the repository name for GitHub Pages deployment
-      // IMPORTANT: Update this value with your actual repository name
-      // For example, if your repository is at https://github.com/username/markmytech
-      // Set basePath to '/markmytech'
       window.GITHUB_PAGES_ENV = {
-        // CHANGE THIS: Must match the exact case of your GitHub repository name
         basePath: '/MarkMyTech.website',  
         isGitHubPages: true
       };
     </script>
-    <script type="module" crossorigin src="./assets/index-CHrSFNAg.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D_kRVGwq.css">
     
-  <!-- Start Single Page Apps for GitHub Pages -->
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // https://github.com/rafgraph/spa-github-pages
-    // This script checks to see if a redirect is present in the query string,
-    // converts it back into the correct url and adds it to the
-    // browser's history using window.history.replaceState(...),
-    // which won't cause the browser to attempt to load the new url.
-    // When the single page app is loaded further down in this file,
-    // the correct url will be waiting in the browser's history for
-    // the single page app to route accordingly.
-    (function(l) {
-      if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) { 
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        );
-      }
-    }(window.location))
-  </script>
-  <!-- End Single Page Apps for GitHub Pages -->
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
+    
+    <script type="module" crossorigin src="./assets/index-CsIqQSj2.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D_kRVGwq.css">
   </head>
   <body>
     <div id="root"></div>
-    <!-- GitHub Pages console debugging - will show in browser console if GitHub Pages is loaded -->
-    <script type="text/javascript">
-      console.log('Mark My Tech website loaded successfully!');
-      console.log('GitHub Pages environment:', window.GITHUB_PAGES_ENV);
-      console.log('Current path:', window.location.pathname);
+    
+    <!-- GitHub Pages debugging -->
+    <script>
+      console.log('Mark My Tech website loaded from GitHub Pages');
+      console.log('Current location:', window.location.href);
+      console.log('Path:', window.location.pathname);
+      console.log('Search:', window.location.search);
+      console.log('GitHub env:', window.GITHUB_PAGES_ENV);
     </script>
+    
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>
