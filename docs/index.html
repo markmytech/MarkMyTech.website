@@ -62,7 +62,7 @@
       // Set basePath to '/markmytech'
       window.GITHUB_PAGES_ENV = {
         // CHANGE THIS: Must match the exact case of your GitHub repository name
-        basePath: '/markmytech',  
+        basePath: '/MarkMyTech.website',  
         isGitHubPages: true
       };
     </script>
@@ -96,6 +96,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- GitHub Pages console debugging - will show in browser console if GitHub Pages is loaded -->
+    <script type="text/javascript">
+      console.log('Mark My Tech website loaded successfully!');
+      console.log('GitHub Pages environment:', window.GITHUB_PAGES_ENV);
+      console.log('Current path:', window.location.pathname);
+    </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>

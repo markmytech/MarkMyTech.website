@@ -21,7 +21,8 @@
     // the real directory in which the app resides, for example:
     // https://username.github.io/repo-name/one/two?a=b&c=d#qwe, becomes
     // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
-    // For GitHub Pages, pathSegmentsToKeep should be 1 for username.github.io/repo-name/
+    // For markymtech.github.io/MarkMyTech.website/, we need to keep 1 segment
+    // This is CASE-SENSITIVE! Make sure it matches your GitHub repository name exactly
     var pathSegmentsToKeep = 1;
 
     var l = window.location;

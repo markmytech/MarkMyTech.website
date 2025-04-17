@@ -52,13 +52,25 @@ function Router() {
   // Use GitHub Pages routing helper
   const { isGitHubPages, basePath } = useGitHubPagesRouting();
   
+  // Add special handling for the exact GitHub Pages repository path
+  const repoName = 'MarkMyTech.website';
+  
   return (
     <Switch>
+      {/* Basic routes */}
       <Route path="/" component={Home} />
       <Route path="/index.html" component={Home} />
-      {/* Add additional routes for common GitHub Pages paths */}
+      
+      {/* Dynamic routes based on environment */}
       <Route path={`${basePath}/`} component={Home} />
       <Route path={`${basePath}/index.html`} component={Home} />
+      
+      {/* Hardcoded routes for this specific repository */}
+      <Route path={`/${repoName}/`} component={Home} />
+      <Route path={`/${repoName}/index.html`} component={Home} />
+      <Route path={`/${repoName}`} component={Home} />
+      
+      {/* Catch all other routes */}
       <Route component={NotFound} />
     </Switch>
   );

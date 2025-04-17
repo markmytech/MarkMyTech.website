@@ -1,4 +1,8 @@
-# GitHub Pages Deployment Guide
+# GitHub Pages Deployment Guide for Mark My Tech
+
+## Repository-Specific Information
+- **Repository Name**: MarkMyTech.website
+- **GitHub Pages URL**: https://markymtech.github.io/MarkMyTech.website/
 
 ## Setup Steps
 
@@ -40,15 +44,16 @@ If you see a 404 error after deployment, check:
    - If using a custom domain, set it up in the GitHub Pages settings
 
 5. **Repository Name with Special Characters**
-   - If the repository name contains special characters or uppercase letters:
-     - Open `docs/index.html` 
-     - Update the `GITHUB_PAGES_ENV` basePath with exact repository name
+   - Since your repository name "MarkMyTech.website" contains uppercase letters and a period:
+     - We've updated `docs/index.html` with the exact repository name:
      ```js
      window.GITHUB_PAGES_ENV = {
-       basePath: '/Your-Repo-Name',  // Case-sensitive, must match exactly
+       basePath: '/MarkMyTech.website',  // Exactly matches the repository name
        isGitHubPages: true
      };
      ```
+   - The router in App.tsx has also been configured to handle this specific repository name
+   - This ensures GitHub Pages properly routes your SPA application
 
 ### First-time Deployment
 
