@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Linkedin, Facebook, Mail, Clock } from "lucide-react";
+import { Calendar, Linkedin, Facebook, Mail, Clock, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Contact() {
+  const [isFormLoading, setIsFormLoading] = useState(true);
+  
   // Track when the Google Form is displayed to the user
   useEffect(() => {
     trackEvent({
@@ -24,6 +26,13 @@ export default function Contact() {
         }
       });
     }
+    
+    // Set a timeout in case the form takes too long to load
+    const timeout = setTimeout(() => {
+      setIsFormLoading(false);
+    }, 8000);
+    
+    return () => clearTimeout(timeout);
   }, []);
 
   const containerVariants = {
@@ -70,21 +79,42 @@ export default function Contact() {
           variants={containerVariants}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="bg-white p-1 rounded-lg shadow-md">
+          <motion.div variants={itemVariants} className="bg-white p-1 rounded-lg shadow-lg">
             <div 
-              className="w-full bg-white rounded-lg overflow-hidden shadow-inner"
-              style={{ height: '550px' }} 
+              className="w-full bg-white rounded-lg overflow-hidden"
+              style={{ height: '780px', boxShadow: 'inset 0 0 8px rgba(0,0,0,0.05)' }} 
               data-analytics="google-form-container"
             >
+              {isFormLoading && (
+                <div className="flex flex-col items-center justify-center h-full bg-white">
+                  <Loader2 className="w-16 h-16 text-primary animate-spin mb-4" />
+                  <p className="text-gray-600 text-lg">Loading form...</p>
+                  <p className="text-gray-500 text-sm mt-2">Please wait while we prepare the contact form</p>
+                </div>
+              )}
               <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSeHnEhEXLjnvUh7R9oCrtoJ-l40YVf7aRx-EEERaPTF1mfyDw/viewform?embedded=true"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeHnEhEXLjnvUh7R9oCrtoJ-l40YVf7aRx-EEERaPTF1mfyDw/viewform?embedded=true&usp=pp_url&entry.1191745004="
                 width="100%" 
                 height="100%" 
                 frameBorder="0" 
                 marginHeight={0} 
                 marginWidth={0}
                 title="Contact Form"
+                style={{ 
+                  display: 'block',
+                  border: 'none',
+                  backgroundColor: 'white', 
+                  transformOrigin: '0 0',
+                  transform: 'scale(0.98)',
+                  marginTop: '-15px',
+                  marginBottom: '-20px',
+                  borderRadius: '0.5rem',
+                  transition: 'opacity 0.3s ease-in-out',
+                  boxShadow: 'none',
+                  opacity: isFormLoading ? 0 : 1
+                }}
                 onLoad={() => {
+                  setIsFormLoading(false);
                   trackEvent({
                     category: 'contact',
                     action: 'google_form_loaded',
