@@ -1,19 +1,36 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-const navLinks = [
+// Main navigation links
+const mainNavLinks = [
   { text: "Home", href: "#home" },
   { text: "Services", href: "#pricing" },
+  { text: "About", href: "#about" },
+  { text: "FAQ", href: "#faq" },
+  { text: "Contact", href: "#contact" },
+];
+
+// Sections dropdown items
+const sectionsLinks = [
   { text: "How We Help", href: "#services" },
   { text: "Find Your Fit", href: "#quiz" },
   { text: "Who It's For", href: "#for-who" },
   { text: "Success Stories", href: "#testimonials" },
-  { text: "About", href: "#about" },
-  { text: "FAQ", href: "#faq" },
-  { text: "Contact", href: "#contact" },
+];
+
+// All nav links for mobile view
+const allNavLinks = [
+  ...mainNavLinks,
+  ...sectionsLinks
 ];
 
 export default function Header() {
@@ -57,13 +74,13 @@ export default function Header() {
                 </div>
                 <div className="flex flex-col">
                   <div className="flex">
-                    <span className="text-2xl font-bold font-poppins">
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold font-poppins">
                       <span className="text-primary">Mark</span>
                       <span className="text-accent">My</span>
                       <span className="text-primary">Tech</span>
                     </span>
                   </div>
-                  <span className="text-xs text-gray-500 -mt-1">AI Automation Solutions</span>
+                  <span className="text-[10px] md:text-xs text-gray-500 -mt-1">AI Automation Solutions</span>
                 </div>
               </div>
               <span className="sr-only">Mark My Tech</span>
@@ -71,22 +88,44 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
+          <nav className="hidden lg:flex items-center space-x-2 xl:space-x-4">
+            {/* Main links */}
+            {mainNavLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+                className="text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1"
                 data-analytics="nav-link"
                 data-section={link.text.toLowerCase().replace(/\s+/g, '-')}
               >
                 {link.text}
               </a>
             ))}
+            
+            {/* Sections dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1">
+                Sections <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56 z-50">
+                {sectionsLinks.map((link) => (
+                  <DropdownMenuItem key={link.href} asChild>
+                    <a
+                      href={link.href}
+                      className="w-full cursor-pointer"
+                      data-analytics="nav-link"
+                      data-section={link.text.toLowerCase().replace(/\s+/g, '-')}
+                    >
+                      {link.text}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
-          <div className="hidden md:block">
-            <Button asChild>
+          <div className="hidden lg:block">
+            <Button asChild className="text-sm px-3 py-2 h-auto">
               <a 
                 href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
                 target="_blank" 
@@ -100,7 +139,7 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <Button
               variant="ghost"
               size="icon"
@@ -120,15 +159,15 @@ export default function Header() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden"
             >
-              <div className="flex flex-col space-y-3 pb-4">
-                {navLinks.map((link) => (
+              <div className="flex flex-col space-y-2 pb-4">
+                {allNavLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={closeMenu}
-                    className="text-gray-700 hover:text-primary font-medium py-2 transition-colors duration-200"
+                    className="text-gray-700 hover:text-primary font-medium py-2 px-1 transition-colors duration-200 border-b border-gray-100 last:border-0"
                     data-analytics="nav-link"
                     data-section={link.text.toLowerCase().replace(/\s+/g, '-')}
                     data-mobile="true"
@@ -136,18 +175,20 @@ export default function Header() {
                     {link.text}
                   </a>
                 ))}
-                <Button asChild className="mt-2">
-                  <a 
-                    href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    onClick={closeMenu}
-                    data-analytics="consultation-booking"
-                    data-source="mobile-menu"
-                  >
-                    Book a Free Consultation
-                  </a>
-                </Button>
+                <div className="pt-2 mt-2 border-t border-gray-200">
+                  <Button asChild className="w-full justify-center text-sm">
+                    <a 
+                      href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={closeMenu}
+                      data-analytics="consultation-booking"
+                      data-source="mobile-menu"
+                    >
+                      Book a Free Consultation
+                    </a>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           )}
