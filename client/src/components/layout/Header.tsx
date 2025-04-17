@@ -10,36 +10,38 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-// Main navigation links
+// Individual navigation items for easier reference and ordering
+const homeLink = { text: "Home", href: "#home" };
+const servicesLink = { text: "Services", href: "#pricing" };
+const contactLink = { text: "Contact", href: "#contact" };
+const faqLink = { text: "FAQ", href: "#faq" };
+
+// Main navigation links - reordered as requested
 const mainNavLinks = [
-  { text: "Home", href: "#home" },
-  { text: "Services", href: "#pricing" },
-  { text: "Contact", href: "#contact" },
-  { text: "About", href: "#about" },
-  { text: "FAQ", href: "#faq" },
+  homeLink,        // Home
+  servicesLink,    // Services
+  // Sections dropdown will go here in the UI
+  contactLink,     // Contact
+  faqLink          // FAQ
 ];
 
-// Sections dropdown items
+// Sections dropdown items - now includes About
 const sectionsLinks = [
   { text: "How We Help", href: "#services" },
   { text: "Find Your Fit", href: "#quiz" },
   { text: "Who It's For", href: "#for-who" },
   { text: "Success Stories", href: "#testimonials" },
+  { text: "About", href: "#about" },
 ];
 
-// All nav links for mobile view - reorder to make Contact appear after Services
+// All nav links for mobile view - reordered to match main nav
 const allNavLinks = [
-  // Home (first)
-  mainNavLinks[0],
-  // Services (second)
-  mainNavLinks[1],
-  // Contact (third)
-  mainNavLinks[2],
-  // Sections dropdown items
+  homeLink,         // Home (first)
+  servicesLink,     // Services (second)
+  // Sections - include all section items expanded in mobile view
   ...sectionsLinks,
-  // About and FAQ (last)
-  mainNavLinks[3],
-  mainNavLinks[4]
+  contactLink,      // Contact
+  faqLink           // FAQ (last)
 ];
 
 export default function Header() {
@@ -96,22 +98,29 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - with specific order */}
           <nav className="hidden lg:flex items-center space-x-2 xl:space-x-4">
-            {/* Main links */}
-            {mainNavLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1"
-                data-analytics="nav-link"
-                data-section={link.text.toLowerCase().replace(/\s+/g, '-')}
-              >
-                {link.text}
-              </a>
-            ))}
+            {/* Home link */}
+            <a
+              href={homeLink.href}
+              className="text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1"
+              data-analytics="nav-link"
+              data-section={homeLink.text.toLowerCase().replace(/\s+/g, '-')}
+            >
+              {homeLink.text}
+            </a>
             
-            {/* Sections dropdown */}
+            {/* Services link */}
+            <a
+              href={servicesLink.href}
+              className="text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1"
+              data-analytics="nav-link"
+              data-section={servicesLink.text.toLowerCase().replace(/\s+/g, '-')}
+            >
+              {servicesLink.text}
+            </a>
+            
+            {/* Sections dropdown - positioned third */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1">
                 Sections <ChevronDown className="ml-1 h-4 w-4" />
@@ -131,6 +140,26 @@ export default function Header() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+            
+            {/* Contact link */}
+            <a
+              href={contactLink.href}
+              className="text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1"
+              data-analytics="nav-link"
+              data-section={contactLink.text.toLowerCase().replace(/\s+/g, '-')}
+            >
+              {contactLink.text}
+            </a>
+            
+            {/* FAQ link */}
+            <a
+              href={faqLink.href}
+              className="text-gray-700 hover:text-primary text-sm xl:text-base font-medium transition-colors duration-200 px-2 py-1"
+              data-analytics="nav-link"
+              data-section={faqLink.text.toLowerCase().replace(/\s+/g, '-')}
+            >
+              {faqLink.text}
+            </a>
           </nav>
 
           <div className="hidden lg:block">
