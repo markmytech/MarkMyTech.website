@@ -1,119 +1,30 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Linkedin, Facebook, Mail, Clock } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
-import { apiRequest } from "@/lib/queryClient";
 import { trackEvent } from "@/lib/analytics";
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // Track when the Google Form is displayed to the user
+  useEffect(() => {
+    trackEvent({
+      category: 'contact',
+      action: 'google_form_view',
+      label: 'contact_form'
+    });
     
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing fields",
-        description: "Please fill out all the fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      await apiRequest("POST", "/api/contact", formData);
-      
-      // Track successful form submission
-      trackEvent({
-        category: 'contact',
-        action: 'form_submit_success',
-        label: 'contact_form',
+    // Track funnel stage
+    if (window.analytics?.trackFunnelStage) {
+      window.analytics.trackFunnelStage({
+        stage: 'contact_form_view',
+        pageSection: 'contact',
         attributes: {
-          form_length: formData.message.length
+          form_type: 'google_form'
         }
       });
-      
-      // Track conversion
-      if (window.analytics?.trackConversion) {
-        window.analytics.trackConversion(
-          'contact_form_submit',
-          1,
-          {
-            message_topic: formData.message.substring(0, 30) + '...',
-            message_length: formData.message.length
-          }
-        );
-      }
-      
-      // Track funnel stage
-      if (window.analytics?.trackFunnelStage) {
-        window.analytics.trackFunnelStage({
-          stage: 'contact_submitted',
-          pageSection: 'contact',
-          attributes: {
-            previous_page: window.location.pathname
-          }
-        });
-      }
-      
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
-      });
-      
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } catch (error) {
-      // Track form submission error
-      trackEvent({
-        category: 'contact',
-        action: 'form_submit_error',
-        label: 'contact_form',
-        attributes: {
-          error: String(error).substring(0, 100)
-        }
-      });
-      
-      toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
     }
-  };
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -159,57 +70,36 @@ export default function Contact() {
           variants={containerVariants}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto"
         >
-          <motion.div variants={itemVariants}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-white mb-1">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white mb-1">
-                  Email
-                </label>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-white mb-1">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <Button 
-                  type="submit" 
-                  className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 text-lg shadow-lg" 
-                  disabled={isSubmitting}
-                  data-analytics="contact-form-submit"
-                >
-                  {isSubmitting ? "Sending..." : "Let's Talk"}
-                </Button>
-              </div>
-            </form>
+          <motion.div variants={itemVariants} className="bg-white p-1 rounded-lg shadow-md">
+            <div 
+              className="w-full bg-white rounded-lg overflow-hidden shadow-inner"
+              style={{ height: '550px' }} 
+              data-analytics="google-form-container"
+            >
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeHnEhEXLjnvUh7R9oCrtoJ-l40YVf7aRx-EEERaPTF1mfyDw/viewform?embedded=true"
+                width="100%" 
+                height="100%" 
+                frameBorder="0" 
+                marginHeight={0} 
+                marginWidth={0}
+                title="Contact Form"
+                onLoad={() => {
+                  trackEvent({
+                    category: 'contact',
+                    action: 'google_form_loaded',
+                    label: 'contact_form'
+                  });
+                }}
+              >
+                Loading form...
+              </iframe>
+            </div>
+            <div className="text-center mt-4 p-2">
+              <p className="text-xs text-white">
+                Form powered by Google Forms
+              </p>
+            </div>
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:pl-8">
@@ -223,6 +113,37 @@ export default function Contact() {
                 </p>
                 
                 <div className="space-y-8">
+                  <div>
+                    <h4 className="text-lg font-medium mb-2 font-poppins">
+                      Book a Consultation
+                    </h4>
+                    <div className="flex items-center space-x-2 text-gray-600 mb-4">
+                      <Calendar className="h-4 w-4 text-primary" />
+                      <a 
+                        href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                        data-analytics="calendar-booking-click"
+                      >
+                        Schedule a Call
+                      </a>
+                    </div>
+                    <Button 
+                      asChild 
+                      className="w-full bg-accent hover:bg-accent/90 text-white"
+                      data-analytics="calendar-booking-button"
+                    >
+                      <a 
+                        href="https://calendar.app.google/MYPE1kzDMy6sDv2n6" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        Book Your Free Consultation
+                      </a>
+                    </Button>
+                  </div>
+                
                   <div>
                     <h4 className="text-lg font-medium mb-4 font-poppins">
                       Social Media
